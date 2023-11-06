@@ -33,7 +33,14 @@ const App = () => {
         <Route path="/login" element={<StudentLogin />} />
         <Route path="/replay/:saveID" element={<Replay />} />
         <Route path="/sandbox" element={<BlocklyPage isSandbox={true} />} />
-        <Route path="/usersettings" element={<UserSettings />} />
+        <Route
+          path="/usersettings"
+          element={
+            <PrivateRoute>
+              <UserSettings />
+            </PrivateRoute>
+          }
+        />
         <Route
           path="/report"
           element={
