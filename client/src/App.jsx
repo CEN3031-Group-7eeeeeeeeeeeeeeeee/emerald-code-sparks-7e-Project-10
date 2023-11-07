@@ -20,6 +20,7 @@ import StudentLogin from "./views/StudentLogin/StudentLogin";
 import ForgetPassword from "./views/TeacherLogin/ForgetPassword";
 import ResetPassword from "./views/TeacherLogin/ResetPassword";
 import TeacherLogin from "./views/TeacherLogin/TeacherLogin";
+import CreateUserPage from "./views/CreateAccount/CreateUserPage";
 
 const App = () => {
   return (
@@ -39,6 +40,12 @@ const App = () => {
             <PrivateRoute>
               <UserSettings />
             </PrivateRoute>
+          }
+        />
+        <Route
+          path="/createuser"
+          element={
+            <CreateUserPage/>
           }
         />
         <Route

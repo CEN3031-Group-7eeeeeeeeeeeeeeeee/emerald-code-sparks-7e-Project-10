@@ -78,7 +78,9 @@ export default function TeacherLogin() {
             disabled={loading}
           />
         </form>
+        
       </div>
+      <button onClick={() => navigate("/createuser")}>Or Sign Up</button>
     </div>
   );
 }
