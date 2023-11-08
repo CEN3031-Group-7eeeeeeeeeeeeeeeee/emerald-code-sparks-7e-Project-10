@@ -77,9 +77,12 @@ export default function TeacherLogin() {
             onClick={handleLogin}
             disabled={loading}
           />
+        <div className='signup-wrapper'>
+          <button className='signup-button' onClick={() => navigate("/createuser")}>{loading ? 'Loading...' : 'Or Sign Up'}</button>
+        </div>
         </form>
       </div>
-      <button onClick={() => navigate("/createuser")}>Or Sign Up</button>
+      
     </div>
   );
 }

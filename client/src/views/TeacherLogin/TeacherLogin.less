@@ -62,7 +62,6 @@
 }
 
 #box input[type='button'] {
-  background: darken(#colors[tertiary], 30%);
   width: 80%;
   display: block;
   margin: 0 auto;
@@ -360,5 +359,25 @@
 
 }
 
+.signup-button {
+  display: block;
+  margin: 0 auto;
+  border: 2px solid;
+  border-color: #colors[secondary];
+  padding: 14px 40px;
+  outline: none;
+  color: #colors[text-primary];
+  background-color: #colors[quaternary];
+  font-size: 1.2em;
+  font-weight: 500;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.25s;
+  position: relative;
+  bottom: -65px;
+  margin-top: 20px; 
 
-  
+  &:hover {
+    background-color: #colors[quinary];
+  }
+}

@@ -87,7 +87,7 @@ export default function NavBar() {
           key="6"
           onClick={() => handleRouteChange(routes.UserSettings)}
         >
-          <i className="fa fa-sign-in-alt" />
+          <i className="fa fa-cog" />
           &nbsp; User Settings
         </Menu.Item>
       ) : null}
