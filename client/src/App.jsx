@@ -42,12 +42,7 @@ const App = () => {
             </PrivateRoute>
           }
         />
-        <Route
-          path="/createuser"
-          element={
-            <CreateUserPage/>
-          }
-        />
+        <Route path="/createuser" element={<CreateUserPage />} />
         <Route
           path="/report"
           element={

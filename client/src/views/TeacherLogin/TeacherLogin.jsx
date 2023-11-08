@@ -1,9 +1,9 @@
-import { message } from 'antd';
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import NavBar from '../../components/NavBar/NavBar';
-import { postUser, setUserSession } from '../../Utils/AuthRequests';
-import './TeacherLogin.less';
+import { message } from "antd";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import NavBar from "../../components/NavBar/NavBar";
+import { postUser, setUserSession } from "../../Utils/AuthRequests";
+import "./TeacherLogin.less";
 
 const useFormInput = (initialValue) => {
   const [value, setValue] = useState(initialValue);
@@ -18,8 +18,8 @@ const useFormInput = (initialValue) => {
 };
 
 export default function TeacherLogin() {
-  const email = useFormInput('');
-  const password = useFormInput('');
+  const email = useFormInput("");
+  const password = useFormInput("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -31,54 +31,53 @@ export default function TeacherLogin() {
       .then((response) => {
         setUserSession(response.data.jwt, JSON.stringify(response.data.user));
         setLoading(false);
-        if (response.data.user.role.name === 'Content Creator') {
-          navigate('/ccdashboard');
-        } else if (response.data.user.role.name === 'Researcher') {
-          navigate('/report');
+        if (response.data.user.role.name === "Content Creator") {
+          navigate("/ccdashboard");
+        } else if (response.data.user.role.name === "Researcher") {
+          navigate("/report");
         } else {
-          navigate('/dashboard');
+          navigate("/dashboard");
         }
       })
       .catch((error) => {
         setLoading(false);
-        message.error('Login failed. Please input a valid email and password.');
+        message.error("Login failed. Please input a valid email and password.");
       });
   };
 
   return (
-    <div className='container nav-padding'>
+    <div className="container nav-padding">
       <NavBar />
-      <div id='content-wrapper'>
+      <div id="content-wrapper">
         <form
-          id='box'
+          id="box"
           onKeyPress={(e) => {
-            if (e.key === 'Enter') handleLogin();
+            if (e.key === "Enter") handleLogin();
           }}
         >
-          <div id='box-title'>User Login</div>
+          <div id="box-title">User Login</div>
           <input
-            type='email'
+            type="email"
             {...email}
-            placeholder='Email'
-            autoComplete='username'
+            placeholder="Email"
+            autoComplete="username"
           />
           <input
-            type='password'
+            type="password"
             {...password}
-            placeholder='Password'
-            autoComplete='current-password'
+            placeholder="Password"
+            autoComplete="current-password"
           />
-          <p id='forgot-password' onClick={() => navigate('/forgot-password')}>
+          <p id="forgot-password" onClick={() => navigate("/forgot-password")}>
             Forgot Password?
           </p>
           <input
-            type='button'
-            value={loading ? 'Loading...' : 'Login'}
+            type="button"
+            value={loading ? "Loading..." : "Login"}
             onClick={handleLogin}
             disabled={loading}
           />
         </form>
-        
       </div>
       <button onClick={() => navigate("/createuser")}>Or Sign Up</button>
     </div>
