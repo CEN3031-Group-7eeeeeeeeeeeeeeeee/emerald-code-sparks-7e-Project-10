@@ -1,5 +1,8 @@
 import React, {useState} from 'react'
 import "./CreateUserPage.less";
+import {createUser, getStudentClassroom} from '../../Utils/requests';
+import {message} from "antd";
+import {eachLimit} from "../../../public/lib/avrgirl-arduino.global";
 
 const CreateUser = () => {
 
@@ -35,12 +38,29 @@ const CreateUser = () => {
 
     const createUserFunction = async () => {
         if(validateEmail(email) && validatePassword(password)){
-            try {
+            const runRequest = async () => {
+                try {
+                    const res = await createUser(userId,email,password);
+                    if (res.data) {
+                        if (res.data.messages) {
+                            message.error(res.data.messages)
+                        } else {
+                            message.info('User created: ' + userId)
+                        }
+                    } else {
+                        message.error(res.err);
+                    }
+                } catch (err) {console.log('Some error happened: ' + err)}
+            };
+            await runRequest();
+
+
+            /*try {
                 // Create user here using SQL
                 const response = await fetch(''); 
             } catch(error) { //Catch any error and log to the screen
                 console.error('Error: ', error); 
-            }
+            }*/
         }
         else
             alert("Invalid email or password!");
