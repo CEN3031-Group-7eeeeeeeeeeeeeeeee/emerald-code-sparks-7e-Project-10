@@ -14,11 +14,16 @@ export default function UserSettings() {
       <NavBar />
       <div id="main-header">User Settings</div>
       <div className="user-settings-container">
+        <div id="container-title">My Account</div>
         <h2 className="settings-title">Sample User Settings Below</h2>
         <div className="delete-user-container">
           <h2>Delete User: </h2>
           <DeleteUser userID={user.id} />
         </div>
+      </div>
+
+      <div className="user-settings-container">
+        <div id="container-title">My Classrooms</div>
       </div>
     </div>
   );
