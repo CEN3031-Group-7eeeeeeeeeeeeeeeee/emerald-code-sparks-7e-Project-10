@@ -12,6 +12,8 @@ export default function UserSettings() {
 
   const [username, setUsername] = useState(user.username);
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [email, setEmail] = useState(user.email);
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
@@ -21,11 +23,20 @@ export default function UserSettings() {
     setPassword(event.target.value);
   };
 
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  };
+
+  const handleConfirmPasswordChange = (event) => {
+    setConfirmPassword(event.target.value);
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    // TODO: Send updated username and password to server
+    // TODO: Send updated username, email and password to server
     console.log(`New username: ${username}`);
     console.log(`New password: ${password}`);
+    console.log(`New email: ${email}`);
   };
 
   return (
@@ -44,13 +55,29 @@ export default function UserSettings() {
               value={username}
               onChange={handleUsernameChange}
             />
-            <label htmlFor="password">Password:</label>
+            <label htmlFor="email">Email:</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={email}
+              onChange={handleEmailChange}
+            />
+            <label htmlFor="password">New Password</label>
             <input
               type="password"
               id="password"
               name="password"
               value={password}
               onChange={handlePasswordChange}
+            />
+            <label htmlFor="confirm-password">Confirm Password</label>
+            <input
+              type="password"
+              id="confirm-password"
+              name="confirm-password"
+              value={confirmPassword}
+              onChange={handleConfirmPasswordChange}
             />
             <button type="submit">Save Changes</button>
           </form>

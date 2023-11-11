@@ -50,16 +50,27 @@
   text-align: center;
 }
 
+label {
+  display: block;
+  text-align: left;
+  color: #colors[text-primary];
+  font-size: 1.2em;
+  font-weight: 500;
+  margin-top: 5px;
+  margin-left: 20px;
+}
+
 input[type="text"],
 input[type="email"],
 input[type="password"] {
   display: block;
   background: none;
-  margin: 20px auto 0px;
+  margin: 12px auto 0px;
+  margin-bottom: 4px;
   border: 2px solid;
   border-color: #colors[secondary];
   padding: 14px 10px;
-  width: 200px;
+  width: 250px;
   outline: none;
   color: #colors[text-primary];
   border-radius: 8px;
@@ -69,7 +80,7 @@ input[type="password"] {
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="password"]:focus {
-  width: 220px;
+  width: 270px;
 }
 
 input[type="button"] {
@@ -118,7 +129,7 @@ input[type="button"] {
   margin: 6vh auto 4vh auto;
   padding-top: 40px;
   padding-bottom: 40px;
-  width: 80vw;
+  width: 60vw;
   height: auto;
   background: #colors[senary];
   border-radius: 5px;
@@ -134,6 +145,7 @@ input[type="button"] {
 
 .my-account-form {
   text-align: left;
+  width: 280px;
   padding: 0;
   margin: 0;
 }
