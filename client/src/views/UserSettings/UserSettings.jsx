@@ -8,6 +8,25 @@ import DeleteUser from "./DeleteUser";
 export default function UserSettings() {
   const user = JSON.parse(sessionStorage.getItem("user"));
   const userID = user["id"];
+  console.log(user);
+
+  const [username, setUsername] = useState(user.username);
+  const [password, setPassword] = useState("");
+
+  const handleUsernameChange = (event) => {
+    setUsername(event.target.value);
+  };
+
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // TODO: Send updated username and password to server
+    console.log(`New username: ${username}`);
+    console.log(`New password: ${password}`);
+  };
 
   return (
     <div className="container nav-padding">
@@ -15,7 +34,27 @@ export default function UserSettings() {
       <div id="main-header">User Settings</div>
       <div className="user-settings-container">
         <div id="container-title">My Account</div>
-        <h2 className="settings-title">Sample User Settings Below</h2>
+        <div className="user-settings-inner">
+          <form onSubmit={handleSubmit} className="my-account-form">
+            <label htmlFor="username">Username:</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              value={username}
+              onChange={handleUsernameChange}
+            />
+            <label htmlFor="password">Password:</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={password}
+              onChange={handlePasswordChange}
+            />
+            <button type="submit">Save Changes</button>
+          </form>
+        </div>
         <div className="delete-user-container">
           <h2>Delete User: </h2>
           <DeleteUser userID={user.id} />
