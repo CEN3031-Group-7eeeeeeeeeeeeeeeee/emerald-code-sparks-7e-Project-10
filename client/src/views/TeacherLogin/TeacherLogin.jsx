@@ -77,7 +77,9 @@ export default function TeacherLogin() {
             onClick={handleLogin}
             disabled={loading}
           />
-          <div className="signup-wrapper">
+        </form>
+        <form>
+        <div className="signup-wrapper">
             <button
               className="signup-button"
               onClick={() => navigate("/createuser")}
