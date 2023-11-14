@@ -72,7 +72,7 @@ export default function TeacherLogin() {
             Forgot Password?
           </p>
           <input
-            type="button"
+            type="submit"
             value={loading ? "Loading..." : "Login"}
             onClick={handleLogin}
             disabled={loading}
@@ -82,7 +82,11 @@ export default function TeacherLogin() {
         <div className="signup-wrapper">
             <button
               className="signup-button"
-              onClick={() => navigate("/createuser")}
+              onClick={(e) => {
+                e.preventDefault();
+                navigate("/createuser");
+              }}
+              type="button"
             >
               {loading ? "Loading..." : "Or Sign Up"}
             </button>
