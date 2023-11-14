@@ -4,16 +4,25 @@ import NavBar from "../../components/NavBar/NavBar";
 import { useNavigate } from "react-router-dom";
 import "./UserSettings.less";
 import DeleteUser from "./DeleteUser";
+import { getCurrentUser, updateUser } from "../../Utils/requests";
+import useCurrentUser from "../../Utils/useCurrentUser";
 
 export default function UserSettings() {
-  const user = JSON.parse(sessionStorage.getItem("user"));
-  const userID = user["id"];
-  console.log(user);
-
-  const [username, setUsername] = useState(user.username);
+  // const user = JSON.parse(sessionStorage.getItem("user"));
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [email, setEmail] = useState(user.email);
+  const [email, setEmail] = useState("");
+
+  const { user, loading, error } = useCurrentUser(); //Fetch the current user
+
+  //Update information once user is done loading
+  useEffect(() => {
+    if (!loading && user) {
+      setUsername(user.username);
+      setEmail(user.email);
+    }
+  }, [user, loading]);
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
@@ -37,6 +46,18 @@ export default function UserSettings() {
     console.log(`New username: ${username}`);
     console.log(`New password: ${password}`);
     console.log(`New email: ${email}`);
+
+    const newUser = { ...user, username, email, password };
+    console.log(JSON.stringify(newUser));
+    updateUser(newUser.id, newUser)
+      .then((response) => {
+        console.log("user has been updated");
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log("error updating user");
+        console.log(error);
+      });
   };
 
   return (
@@ -84,7 +105,7 @@ export default function UserSettings() {
         </div>
         <div className="delete-user-container">
           <h2>Delete User: </h2>
-          <DeleteUser userID={user.id} />
+          <DeleteUser userID={user ? user.id : null} />
         </div>
       </div>
 
