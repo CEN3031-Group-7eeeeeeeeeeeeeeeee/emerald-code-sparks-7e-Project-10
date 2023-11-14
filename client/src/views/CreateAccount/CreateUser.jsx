@@ -2,9 +2,12 @@ import React, {useState} from 'react'
 import "./CreateUserPage.less";
 import {createUser, getStudentClassroom} from '../../Utils/requests';
 import {message} from "antd";
-import {eachLimit} from "../../../public/lib/avrgirl-arduino.global";
+//import {eachLimit} from "../../../public/lib/avrgirl-arduino.global";
 
-const CreateUser = () => {
+
+
+//TODO: reference AddStudents.jsx for formatting purposes and stuff. That file seems to be treating requests correctly where we're not.
+export default function CreateUser () {
 
     const [userId, setUserId] = useState('');
     const [email, setEmail] = useState('');
@@ -26,7 +29,6 @@ const CreateUser = () => {
         else
             return false;
     }
-
     //handler functions for emails / passwords
     const handleEmailChange = (entry) => {
         setEmail(entry.target.value);
@@ -38,9 +40,10 @@ const CreateUser = () => {
 
     const createUserFunction = async () => {
         if(validateEmail(email) && validatePassword(password)){
+            setUserId("sampleUser");
             const runRequest = async () => {
                 try {
-                    const res = await createUser(userId,email,password);
+                    const res = await createUser(email,password);
                     if (res.data) {
                         if (res.data.messages) {
                             message.error(res.data.messages)
@@ -62,8 +65,9 @@ const CreateUser = () => {
                 console.error('Error: ', error); 
             }*/
         }
-        else
+        else{
             alert("Invalid email or password!");
+        }
     }
 
   return (
@@ -86,5 +90,3 @@ const CreateUser = () => {
   )
 
 }
-
-export default CreateUser
