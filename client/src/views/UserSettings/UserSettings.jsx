@@ -4,21 +4,113 @@ import NavBar from "../../components/NavBar/NavBar";
 import { useNavigate } from "react-router-dom";
 import "./UserSettings.less";
 import DeleteUser from "./DeleteUser";
+import { getCurrentUser, updateUser } from "../../Utils/requests";
+import useCurrentUser from "../../Utils/useCurrentUser";
 
 export default function UserSettings() {
-  const user = JSON.parse(sessionStorage.getItem("user"));
-  const userID = user["id"];
+  // const user = JSON.parse(sessionStorage.getItem("user"));
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [email, setEmail] = useState("");
+
+  const { user, loading, error } = useCurrentUser(); //Fetch the current user
+
+  //Update information once user is done loading
+  useEffect(() => {
+    if (!loading && user) {
+      setUsername(user.username);
+      setEmail(user.email);
+    }
+  }, [user, loading]);
+
+  const handleUsernameChange = (event) => {
+    setUsername(event.target.value);
+  };
+
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+  };
+
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  };
+
+  const handleConfirmPasswordChange = (event) => {
+    setConfirmPassword(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // TODO: Send updated username, email and password to server
+    console.log(`New username: ${username}`);
+    console.log(`New password: ${password}`);
+    console.log(`New email: ${email}`);
+
+    const newUser = { ...user, username, email, password };
+    console.log(JSON.stringify(newUser));
+    updateUser(newUser.id, newUser)
+      .then((response) => {
+        console.log("user has been updated");
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log("error updating user");
+        console.log(error);
+      });
+  };
 
   return (
     <div className="container nav-padding">
       <NavBar />
       <div id="main-header">User Settings</div>
       <div className="user-settings-container">
-        <h2 className="settings-title">Sample User Settings Below</h2>
+        <div id="container-title">My Account</div>
+        <div className="user-settings-inner">
+          <form onSubmit={handleSubmit} className="my-account-form">
+            <label htmlFor="username">Username:</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              value={username}
+              onChange={handleUsernameChange}
+            />
+            <label htmlFor="email">Email:</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={email}
+              onChange={handleEmailChange}
+            />
+            <label htmlFor="password">New Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={password}
+              onChange={handlePasswordChange}
+            />
+            <label htmlFor="confirm-password">Confirm Password</label>
+            <input
+              type="password"
+              id="confirm-password"
+              name="confirm-password"
+              value={confirmPassword}
+              onChange={handleConfirmPasswordChange}
+            />
+            <button type="submit">Save Changes</button>
+          </form>
+        </div>
         <div className="delete-user-container">
           <h2>Delete User: </h2>
-          <DeleteUser userID={user.id} />
+          <DeleteUser userID={user ? user.id : null} />
         </div>
+      </div>
+
+      <div className="user-settings-container">
+        <div id="container-title">My Classrooms</div>
       </div>
     </div>
   );

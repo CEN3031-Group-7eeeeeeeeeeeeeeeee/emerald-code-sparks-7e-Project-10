@@ -72,17 +72,25 @@ export default function TeacherLogin() {
             Forgot Password?
           </p>
           <input
-            type="button"
+            type="submit"
             value={loading ? "Loading..." : "Login"}
             onClick={handleLogin}
             disabled={loading}
           />
-        <div className='signup-wrapper'>
-          <button className='signup-button' onClick={() => navigate("/createuser")}>{loading ? 'Loading...' : 'Or Sign Up'}</button>
-        </div>
+          <div className="signup-wrapper">
+            <button
+              className="signup-button"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate("/createuser");
+              }}
+              type="button"
+            >
+              {loading ? "Loading..." : "Or Sign Up"}
+            </button>
+          </div>
         </form>
       </div>
-      
     </div>
   );
 }
