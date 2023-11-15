@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import './UserSettings.less'
 const DeleteUser = ({ userID }) => {
   const deleteUserFunction = async () => {
     const confirmDelete = window.confirm(

@@ -139,16 +139,20 @@ input[type="button"] {
 
 .user-settings-inner {
   display: flex;
-  justify-content: left;
+  justify-content: space-around;
   margin-top: -60px;
   padding: 1%;
+  align-items: flex-start;
 }
 
 .my-account-form {
   text-align: left;
-  width: 300px;
+  width: 20%;
   padding: 0;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 #button-container {
@@ -214,10 +218,38 @@ input[type="button"] {
 
 .delete-user-container {
   display: flex;
-  align-items: baseline;
-  justify-content: left;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  width: 40%;  
+  margin: 0;
+  padding: 0;
 }
 
-.delete-user-container h2 {
-  padding-right: 10px;
+.delete-button, .submit-changes {
+    display: block;
+    margin: 0 auto;
+    border: 2px solid;
+    border-color: #colors[secondary];
+    padding: 14px 40px;
+    outline: none;
+    color: #colors[text-primary];
+    background-color: #colors[quaternary];
+    font-size: 1.2em;
+    font-weight: 500;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.25s;
+    position: relative;
+    bottom: -65px;
+    margin-bottom: 30px;
+    &:hover {
+      background-color: #colors[quinary];
+    }
 }
+
+.other-settings{
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
