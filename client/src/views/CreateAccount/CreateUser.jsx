@@ -5,9 +5,11 @@ import { message } from "antd";
 // import {eachLimit} from "../../../public/lib/avrgirl-arduino.global";
 
 const CreateUser = () => {
-  const [userId, setUserId] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+
+    const [userId, setUserId] = useState('');
+    const [email, setEmail] = useState('');
+    const [username, setUsername] = useState(''); 
+    const [password, setPassword] = useState('');
 
   const validateEmail = (emailInput) => {
     //validates email address
@@ -24,10 +26,14 @@ const CreateUser = () => {
     } else return false;
   };
 
-  //handler functions for emails / passwords
-  const handleEmailChange = (entry) => {
-    setEmail(entry.target.value);
-  };
+    //handler functions for emails / passwords
+    const handleEmailChange = (entry) => {
+        setEmail(entry.target.value);
+    }
+
+    const handleUsernameChange = (entry) => {
+        setUsername(entry.target.value);
+    }
 
   const handlePasswordChange = (entry) => {
     setPassword(entry.target.value);
@@ -63,22 +69,27 @@ const CreateUser = () => {
   };
 
   return (
-    <div className="create-user-page-container">
-      <input
-        type="text"
-        placeholder="Email"
-        value={email}
-        onChange={handleEmailChange}
-      />
-      <input
-        type="text"
-        placeholder="Password"
-        value={password}
-        onChange={handlePasswordChange}
-      />
-      <button className="route-button" onClick={createUserFunction}>
-        Create Account
-      </button>
+    <div className='create-user-page-container'>
+            <input
+                type="text"
+                placeholder="Username"
+                value={username}
+                onChange={handleUsernameChange}
+            />
+            <input
+                type="text"
+                placeholder="Email"
+                value={email}
+                onChange={handleEmailChange}
+            />
+            <input
+                type="text"
+                placeholder="Password"
+                value={password}
+                onChange={handlePasswordChange}
+            />
+            <button className='route-button' onClick={createUserFunction}>Create Account</button>
+        
     </div>
   );
 };
