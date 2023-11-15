@@ -718,3 +718,17 @@ export const updateUser = async (id, newUser) => {
     error: "Unable to update user",
   });
 };
+//may be a better implementation of updateUser?
+export const updateCurrUser = async (email, username, password) => {
+  return makeRequest({
+    method: PUT, 
+    path: `${server}/users/me`,
+    data: {
+      username,
+      email,
+      password,
+    },
+    auth: true,
+    error: "Unable to update current user",
+  });
+};
