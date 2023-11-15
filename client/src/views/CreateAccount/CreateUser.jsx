@@ -5,6 +5,7 @@ const CreateUser = () => {
 
     const [userId, setUserId] = useState('');
     const [email, setEmail] = useState('');
+    const [username, setUsername] = useState(''); 
     const [password, setPassword] = useState('');
 
 
@@ -29,6 +30,10 @@ const CreateUser = () => {
         setEmail(entry.target.value);
     }
 
+    const handleUsernameChange = (entry) => {
+        setUsername(entry.target.value);
+    }
+
     const handlePasswordChange = (entry) => {
         setPassword(entry.target.value);
     }
@@ -48,6 +53,12 @@ const CreateUser = () => {
 
   return (
     <div className='create-user-page-container'>
+            <input
+                type="text"
+                placeholder="Username"
+                value={username}
+                onChange={handleUsernameChange}
+            />
             <input
                 type="text"
                 placeholder="Email"
