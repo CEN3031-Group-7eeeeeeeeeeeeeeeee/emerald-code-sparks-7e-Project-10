@@ -3,7 +3,7 @@
     {
       "method": "PUT",
       "path": "/users/me",
-      "handler": "User.updateMe",
+      "handler": "user.updateMe",
       "config": {
         "policies": [],
         "prefix": "",

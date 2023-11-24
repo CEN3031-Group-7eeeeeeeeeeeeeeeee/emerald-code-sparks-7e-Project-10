@@ -77,9 +77,7 @@ export default function TeacherLogin() {
             onClick={handleLogin}
             disabled={loading}
           />
-        </form>
-        <form>
-        <div className="signup-wrapper">
+          <div className="signup-wrapper">
             <button
               className="signup-button"
               onClick={(e) => {
