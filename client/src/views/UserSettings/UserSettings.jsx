@@ -9,6 +9,7 @@ import useCurrentUser from "../../Utils/useCurrentUser";
 
 export default function UserSettings() {
   // const user = JSON.parse(sessionStorage.getItem("user"));
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -38,6 +39,10 @@ export default function UserSettings() {
 
   const handleConfirmPasswordChange = (event) => {
     setConfirmPassword(event.target.value);
+  };
+
+  const handleBugReport = (event) => {
+    navigate("/bugreport"); 
   };
 
   const handleSubmit = (event) => {
@@ -105,9 +110,10 @@ export default function UserSettings() {
               Save Changes
             </button>
           </form>
-          <div className="delete-user-container">
+          <div className="other-settings-container">
             <label htmlFor="other-settings">Other Settings:</label>
             <DeleteUser userID={user ? user.id : null} />
+            <button type="submit" className="bug-button" onClick={handleBugReport}>Report Bug</button>
           </div>
         </div>
       </div>

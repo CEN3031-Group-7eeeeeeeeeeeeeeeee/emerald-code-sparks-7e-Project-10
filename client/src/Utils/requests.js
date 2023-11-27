@@ -8,7 +8,13 @@ const POST = "POST";
 const DELETE = "DELETE";
 
 // all request functions should utilize makeRequest and return an obj with structure {data, err}
-const makeRequest = async ({ method, path, data, auth = false, error }) => {
+export const makeRequest = async ({
+  method,
+  path,
+  data,
+  auth = false,
+  error,
+}) => {
   let res = null;
   let err = null;
   const config = auth
@@ -677,6 +683,21 @@ export const getClassroomWorkspace = async (id) =>
     path: `${server}/classroom/workspaces/${id}`,
     auth: true,
     error: "Unable to retrive classroom workspaces",
+  });
+
+export const createUser = async (username, email, password) =>
+  makeRequest({
+    method: POST,
+    path: `${server}/auth/local/register`,
+    data: {
+      username: username,
+      email: email,
+      password: password,
+      confirmed: true,
+      blocked: false,
+    },
+    auth: true,
+    error: "Unable to create user",
   });
 
 export const getCurrentUser = async () => {
