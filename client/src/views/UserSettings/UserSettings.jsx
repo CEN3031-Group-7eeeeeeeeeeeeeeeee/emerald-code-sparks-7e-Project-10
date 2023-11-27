@@ -47,7 +47,8 @@ export default function UserSettings() {
     console.log(`New password: ${password}`);
     console.log(`New email: ${email}`);
 
-    const newUser = { ...user, username, email, password };
+    // const newUser = { ...user, username, email, password };
+    const newUser = { ...user, username, email };
     console.log(JSON.stringify(newUser));
     updateUser(newUser.id, newUser)
       .then((response) => {
@@ -100,10 +101,12 @@ export default function UserSettings() {
               value={confirmPassword}
               onChange={handleConfirmPasswordChange}
             />
-            <button type="submit" className="submit-changes">Save Changes</button>
+            <button type="submit" className="submit-changes">
+              Save Changes
+            </button>
           </form>
           <div className="delete-user-container">
-          <label htmlFor="other-settings">Other Settings:</label>
+            <label htmlFor="other-settings">Other Settings:</label>
             <DeleteUser userID={user ? user.id : null} />
           </div>
         </div>
