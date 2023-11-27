@@ -3,6 +3,8 @@ import "./CreateUserPage.less";
 import { createUser, getStudentClassroom } from "../../Utils/requests";
 import { message } from "antd";
 import { makeRequest } from "../../Utils/requests.js";
+import { useNavigate } from "react-router-dom";
+import { setUserSession } from "../../Utils/AuthRequests";
 // import {eachLimit} from "../../../public/lib/avrgirl-arduino.global";
 
 const CreateUser = () => {
@@ -10,6 +12,7 @@ const CreateUser = () => {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const validateEmail = (emailInput) => {
     //validates email address
@@ -50,9 +53,20 @@ const CreateUser = () => {
               message.error(res.data.messages);
             } else {
               message.info("User created");
-              setUsername("");
-              setEmail("");
-              setPassword("");
+              // setUsername("");
+              // setEmail("");
+              // setPassword("");
+
+              //Login and navigate to the correct page
+              setUserSession(res.data.jwt, JSON.stringify(res.data.user));
+
+              if (res.data.user.role.name === "Content Creator") {
+                navigate("/ccdashboard");
+              } else if (res.data.user.role.name === "Researcher") {
+                navigate("/report");
+              } else {
+                navigate("/dashboard");
+              }
             }
           } else {
             message.error(res.err);
