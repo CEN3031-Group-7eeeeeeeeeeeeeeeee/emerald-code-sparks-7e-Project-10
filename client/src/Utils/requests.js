@@ -679,19 +679,6 @@ export const getClassroomWorkspace = async (id) =>
     error: "Unable to retrive classroom workspaces",
   });
 
-export const createUser = async (username, email, password) =>
-  makeRequest({
-    method: POST,
-    path: `${server}/auth/local/register`,
-    data: {
-      username: username,
-      email: email,
-      password: password,
-    },
-    auth: true,
-    error: "Unable to create user",
-  });
-
 export const getCurrentUser = async () => {
   return makeRequest({
     method: GET,
@@ -721,7 +708,7 @@ export const updateUser = async (id, newUser) => {
 //may be a better implementation of updateUser?
 export const updateCurrUser = async (email, username, password) => {
   return makeRequest({
-    method: PUT, 
+    method: PUT,
     path: `${server}/users/me`,
     data: {
       username,
@@ -730,5 +717,28 @@ export const updateCurrUser = async (email, username, password) => {
     },
     auth: true,
     error: "Unable to update current user",
+  });
+};
+
+export const createUser = async (username, email, password, role) => {
+  const newUser = {
+    username,
+    email,
+    password,
+  };
+
+  // userRole = await strapi
+  //   .query("role", "users-permissions")
+  //   .findOne({ type: role }, []);
+  // if (userRole) {
+  //   newUser.role = userRole.id;
+  // }
+  console.log("attempting to create user", JSON.stringify(newUser));
+  return makeRequest({
+    method: POST,
+    path: `${server}/auth/local/register`,
+    data: newUser,
+    auth: false,
+    error: "Unable to create user",
   });
 };
