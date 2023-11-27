@@ -685,21 +685,6 @@ export const getClassroomWorkspace = async (id) =>
     error: "Unable to retrive classroom workspaces",
   });
 
-export const createUser = async (username, email, password) =>
-  makeRequest({
-    method: POST,
-    path: `${server}/auth/local/register`,
-    data: {
-      username: username,
-      email: email,
-      password: password,
-      confirmed: true,
-      blocked: false,
-    },
-    auth: true,
-    error: "Unable to create user",
-  });
-
 export const getCurrentUser = async () => {
   return makeRequest({
     method: GET,
