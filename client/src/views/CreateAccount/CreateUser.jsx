@@ -11,6 +11,7 @@ const CreateUser = () => {
     const [email, setEmail] = useState('');
     const [username, setUsername] = useState(''); 
     const [password, setPassword] = useState('');
+    const [role, setRole] = useState(''); 
 
   const validateEmail = (emailInput) => {
     //validates email address
@@ -91,8 +92,13 @@ const CreateUser = () => {
                 value={password}
                 onChange={handlePasswordChange}
             />
+            <h2 className="role-drop-title" for="role-names">Choose Role</h2>
+            <select name="role-names" id="role-names"
+            onChange={(e) => setRole(e.target.value)}>
+              <option value="student">Student</option> 
+              <option value="teacher">Teacher</option>
+            </select>
             <button className='route-button' onClick={createUserFunction}>Create Account</button>
-        
     </div>
   );
 };
