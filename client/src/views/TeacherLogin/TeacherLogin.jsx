@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import NavBar from "../../components/NavBar/NavBar";
 import { postUser, setUserSession } from "../../Utils/AuthRequests";
+import axios from 'axios';
+
 import "./TeacherLogin.less";
 
 const useFormInput = (initialValue) => {
@@ -15,6 +17,22 @@ const useFormInput = (initialValue) => {
     value,
     onChange: handleChange,
   };
+};
+
+const createUser = async (email, password, username) => {
+  try {
+    const response = await axios.post('http://localhost:1337/users', {
+      username,
+      email,
+      password,
+      confirmed: true, 
+      blocked: false, 
+      role: 2, 
+    });
+    console.log('User created successfully', response.data);
+  } catch (error) {
+    console.error('Error creating user', error);
+  }
 };
 
 export default function TeacherLogin() {
@@ -82,6 +100,7 @@ export default function TeacherLogin() {
               className="signup-button"
               onClick={(e) => {
                 e.preventDefault();
+                createUser(email.value, password.value, username.value);
                 navigate("/createuser");
               }}
               type="button"
