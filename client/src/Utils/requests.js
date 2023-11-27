@@ -8,7 +8,7 @@ const POST = "POST";
 const DELETE = "DELETE";
 
 // all request functions should utilize makeRequest and return an obj with structure {data, err}
-const makeRequest = async ({ method, path, data, auth = false, error }) => {
+export const makeRequest = async ({ method, path, data, auth = false, error }) => {
   let res = null;
   let err = null;
   const config = auth
@@ -687,6 +687,8 @@ export const createUser = async (username, email, password) =>
       username: username,
       email: email,
       password: password,
+      confirmed: true,
+      blocked: false,
     },
     auth: true,
     error: "Unable to create user",

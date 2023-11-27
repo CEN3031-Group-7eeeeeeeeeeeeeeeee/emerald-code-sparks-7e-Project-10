@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./CreateUserPage.less";
 import { createUser, getStudentClassroom } from "../../Utils/requests";
 import { message } from "antd";
+import { makeRequest } from '../../Utils/requests.js';
 // import {eachLimit} from "../../../public/lib/avrgirl-arduino.global";
 
 const CreateUser = () => {
@@ -43,6 +44,7 @@ const CreateUser = () => {
     if (validateEmail(email) && validatePassword(password)) {
       const runRequest = async () => {
         try {
+          console.log("Trying to createUser function"); 
           const res = await createUser(userId, email, password);
           if (res.data) {
             if (res.data.messages) {
@@ -53,6 +55,7 @@ const CreateUser = () => {
           } else {
             message.error(res.err);
           }
+          console.log("Finished function"); 
         } catch (err) {
           console.log("Some error happened: " + err);
         }
