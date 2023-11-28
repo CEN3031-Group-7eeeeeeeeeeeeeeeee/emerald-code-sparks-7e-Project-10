@@ -11,10 +11,12 @@ export default function CreateUserPage() {
       <NavBar />
       <div id="main-header">Create Personal Account</div>
       <div className="create-user-page-container">
-        <form id="box"><h2 className="page-title">Create New User Below</h2>
+        <form id="createUserBox">
+          <h2 className="page-title">Create New User Below</h2>
           <div className="create-user-container">
-            <CreateUser/>
-          </div></form>
+            <CreateUser />
+          </div>
+        </form>
       </div>
     </div>
   );
