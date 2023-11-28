@@ -56,7 +56,7 @@ const CreateUser = () => {
           } else {
             message.error(res.err);
           }
-          console.log("Finished function"); 
+          console.log("Finished function");
         } catch (err) {
           console.log("Some error happened: " + err);
         }

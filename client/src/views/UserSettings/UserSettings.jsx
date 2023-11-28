@@ -42,7 +42,7 @@ export default function UserSettings() {
   };
 
   const handleBugReport = (event) => {
-    navigate("/bugreport"); 
+    navigate("/bugreport");
   };
 
   const handleSubmit = (event) => {
@@ -55,7 +55,7 @@ export default function UserSettings() {
     // const newUser = { ...user, username, email, password };
     const newUser = { ...user, username, email };
     console.log(JSON.stringify(newUser));
-    updateUser(newUser.id, newUser)
+    updateUser(newUser)
       .then((response) => {
         console.log("user has been updated");
         console.log(response);
@@ -113,7 +113,13 @@ export default function UserSettings() {
           <div className="other-settings-container">
             <label htmlFor="other-settings">Other Settings:</label>
             <DeleteUser userID={user ? user.id : null} />
-            <button type="submit" className="bug-button" onClick={handleBugReport}>Report Bug</button>
+            <button
+              type="submit"
+              className="bug-button"
+              onClick={handleBugReport}
+            >
+              Report Bug
+            </button>
           </div>
         </div>
       </div>
