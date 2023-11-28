@@ -37,6 +37,12 @@
 
 module.exports = {
   async updateMe(ctx) {
+    const store = await strapi.store({
+      environment: "",
+      type: "plugin",
+      name: "users-permissions",
+    });
+
     if (!ctx.state.user || !ctx.state.user.id) {
       return (ctx.response.status = 401);
     }
@@ -44,5 +50,27 @@ module.exports = {
     return await strapi
       .query("user", "users-permissions")
       .update({ id: ctx.state.user.id }, { ...ctx.request.body });
+  },
+
+  async deleteMe(ctx) {
+    const store = await strapi.store({
+      environment: "",
+      type: "plugin",
+      name: "users-permissions",
+    });
+
+    if (!ctx.state.user || !ctx.state.user.id) {
+      return (ctx.response.status = 401);
+    }
+
+    const data = await strapi.plugins["users-permissions"].services.user.remove(
+      {
+        id: ctx.state.user.id,
+      }
+    );
+
+    // Send 200 `ok`
+    ctx.send(data);
+    return data;
   },
 };

@@ -7,7 +7,25 @@
       "config": {
         "policies": [],
         "prefix": "",
-        "description": "Update the current user's profile"
+        "description": "Update the current user's profile",
+        "tag": {
+          "plugin": "users-permissions",
+          "name": "User"
+        }
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/users/me",
+      "handler": "user.deleteMe",
+      "config": {
+        "policies": [],
+        "prefix": "",
+        "description": "Delete the currently logged in user",
+        "tag": {
+          "plugin": "users-permissions",
+          "name": "User"
+        }
       }
     }
   ]

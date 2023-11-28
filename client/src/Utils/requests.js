@@ -776,3 +776,12 @@ export const createUser = async (username, email, password, role) => {
   res.data.user = updatedUser;
   return res;
 };
+
+export const deleteCurrentUser = async () => {
+  return makeRequest({
+    method: DELETE,
+    path: `${server}/users/me`,
+    auth: true,
+    error: "Unable to delete current user",
+  });
+};

@@ -6,6 +6,7 @@ import "./UserSettings.less";
 import DeleteUser from "./DeleteUser";
 import { getCurrentUser, updateUser } from "../../Utils/requests";
 import useCurrentUser from "../../Utils/useCurrentUser";
+import { message } from "antd";
 
 export default function UserSettings() {
   // const user = JSON.parse(sessionStorage.getItem("user"));
@@ -47,7 +48,6 @@ export default function UserSettings() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // TODO: Send updated username, email and password to server
     console.log(`New username: ${username}`);
     console.log(`New password: ${password}`);
     console.log(`New email: ${email}`);
@@ -57,12 +57,14 @@ export default function UserSettings() {
     console.log(JSON.stringify(newUser));
     updateUser(newUser)
       .then((response) => {
+        message.info("Successfully Updated");
         console.log("user has been updated");
         console.log(response);
       })
       .catch((error) => {
         console.log("error updating user");
         console.log(error);
+        message.error("Error updating user");
       });
   };
 
