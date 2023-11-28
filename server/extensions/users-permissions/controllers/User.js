@@ -1,3 +1,11 @@
+"use strict";
+
+/**
+ * User.js controller
+ *
+ * @description: A set of functions called "actions" for managing `User`.
+ */
+
 // module.exports = (plugin) => {
 //   plugin.controllers.user.updateMeTest = async (ctx) => {
 //     if (!ctx.state.user || !ctx.state.user.id) {

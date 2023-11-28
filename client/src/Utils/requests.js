@@ -1,6 +1,9 @@
 import { server } from "./hosts";
 import axios from "axios";
 import { getToken } from "./AuthRequests";
+import { roleIDs } from "./roleIDs";
+import { setUserSession } from "./AuthRequests";
+import { getCurrUser } from "./userState";
 
 const GET = "GET";
 const PUT = "PUT";
@@ -694,7 +697,7 @@ export const getCurrentUser = async () => {
   });
 };
 
-export const updateUser = async (id, newUser) => {
+export const updateUser = async (newUser) => {
   // makeRequest({
   //   method: PUT,
   //   path: `${server}/users/${id}`,
@@ -703,7 +706,7 @@ export const updateUser = async (id, newUser) => {
   //   error: "Unable to update user",
   // });
 
-  makeRequest({
+  return await makeRequest({
     method: PUT,
     path: `${server}/users/me`,
     data: newUser,
@@ -733,18 +736,42 @@ export const createUser = async (username, email, password, role) => {
     password,
   };
 
-  // userRole = await strapi
-  //   .query("role", "users-permissions")
-  //   .findOne({ type: role }, []);
-  // if (userRole) {
-  //   newUser.role = userRole.id;
-  // }
-  console.log("attempting to create user", JSON.stringify(newUser));
-  return makeRequest({
+  //Get role ID from role name
+  const userRole = role.toLowerCase();
+  if (userRole) {
+    if (userRole == "student") {
+      newUser.role = roleIDs.Student;
+    } else if (
+      userRole == "classroommanager" ||
+      userRole == "classroom manager"
+    ) {
+      newUser.role = roleIDs.ClassroomManager;
+    } else if (userRole == "contentcreator" || userRole == "content creator") {
+      newUser.role = roleIDs.ContentCreator;
+    } else if (userRole == "researcher") {
+      newUser.role = roleIDs.Researcher;
+    } else {
+      throw new Error("Invalid role type", role);
+    }
+  }
+
+  //register user
+  const res = await makeRequest({
     method: POST,
     path: `${server}/auth/local/register`,
     data: newUser,
     auth: false,
     error: "Unable to create user",
   });
+
+  if (res.err) {
+    return res;
+  }
+  //Set user session. Needed so that the user is authenticated and can change their role to student
+  setUserSession(res.data.jwt, JSON.stringify(res.data.user));
+
+  //update user role since Strapi always creates users with the default role
+  const updatedUser = (await updateUser({ role: newUser.role })).data;
+  res.data.user = updatedUser;
+  return res;
 };

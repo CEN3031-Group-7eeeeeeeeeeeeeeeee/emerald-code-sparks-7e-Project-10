@@ -1,32 +1,38 @@
-import { createGlobalState } from 'react-hooks-global-state';
+import { createGlobalState } from "react-hooks-global-state";
 
 // Get the role of user from the session storage
 export const getCurrUser = () => {
-  const result = JSON.parse(sessionStorage.getItem('user'));
+  const result = JSON.parse(sessionStorage.getItem("user"));
   if (!result) {
     return {
-      role: 'DefaultUser',
+      role: "DefaultUser",
     };
   }
   if (!result.role) {
     return {
-      role: 'Student',
+      role: "Student",
     };
-  } else if (result.role.type === 'content_creator') {
+  } else if (result.role.type === "content_creator") {
     return {
-      role: 'ContentCreator',
+      role: "ContentCreator",
       name: result.role.name,
     };
-  } else if (result.role.type === 'researcher') {
+  } else if (result.role.type === "researcher") {
     return {
-      role: 'Researcher',
+      role: "Researcher",
       name: result.role.name,
     };
-  } else if (result.role.type === 'authenticated') {
+  } else if (result.role.type === "authenticated") {
     return {
-      role: 'Mentor',
+      role: "Mentor",
       name: result.role.name,
     };
+  } else if (result.role.type === "student") {
+    return {
+      role: "Student",
+    };
+  } else {
+    throw new Error("Invalid role type");
   }
 };
 
@@ -35,7 +41,7 @@ const { setGlobalState, useGlobalState } = createGlobalState({
 });
 
 export const setUserState = (s) => {
-  setGlobalState('currUser', s);
+  setGlobalState("currUser", s);
 };
 
 export { useGlobalState };

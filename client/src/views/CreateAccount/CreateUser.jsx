@@ -53,9 +53,6 @@ const CreateUser = () => {
               message.error(res.data.messages);
             } else {
               message.info("User created");
-              // setUsername("");
-              // setEmail("");
-              // setPassword("");
 
               //Login and navigate to the correct page
               setUserSession(res.data.jwt, JSON.stringify(res.data.user));
@@ -64,14 +61,15 @@ const CreateUser = () => {
                 navigate("/ccdashboard");
               } else if (res.data.user.role.name === "Researcher") {
                 navigate("/report");
-              } else {
+              } else if (res.data.user.role.name === "Classroom Manager") {
                 navigate("/dashboard");
+              } else {
+                navigate("/usersettings");
               }
             }
           } else {
             message.error(res.err);
           }
-          console.log("Finished function");
         } catch (err) {
           console.log("Some error happened: " + err);
         }
