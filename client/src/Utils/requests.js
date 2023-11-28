@@ -743,7 +743,8 @@ export const createUser = async (username, email, password, role) => {
       newUser.role = roleIDs.Student;
     } else if (
       userRole == "classroommanager" ||
-      userRole == "classroom manager"
+      userRole == "classroom manager" ||
+      userRole == "teacher"
     ) {
       newUser.role = roleIDs.ClassroomManager;
     } else if (userRole == "contentcreator" || userRole == "content creator") {
