@@ -8,11 +8,11 @@ import { setUserSession } from "../../Utils/AuthRequests";
 // import {eachLimit} from "../../../public/lib/avrgirl-arduino.global";
 
 const CreateUser = () => {
-  const [userId, setUserId] = useState("");
-  const [email, setEmail] = useState("");
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const navigate = useNavigate();
+
+    const [userId, setUserId] = useState('');
+    const [email, setEmail] = useState('');
+    const [username, setUsername] = useState(''); 
+    const [password, setPassword] = useState('');
 
   const validateEmail = (emailInput) => {
     //validates email address
@@ -79,28 +79,27 @@ const CreateUser = () => {
   };
 
   return (
-    <div className="create-user-page-container">
-      <input
-        type="text"
-        placeholder="Username"
-        value={username}
-        onChange={handleUsernameChange}
-      />
-      <input
-        type="text"
-        placeholder="Email"
-        value={email}
-        onChange={handleEmailChange}
-      />
-      <input
-        type="text"
-        placeholder="Password"
-        value={password}
-        onChange={handlePasswordChange}
-      />
-      <button className="route-button" onClick={createUserFunction}>
-        Create Account
-      </button>
+    <div className='create-user-page-container'>
+            <input
+                type="text"
+                placeholder="Username"
+                value={username}
+                onChange={handleUsernameChange}
+            />
+            <input
+                type="text"
+                placeholder="Email"
+                value={email}
+                onChange={handleEmailChange}
+            />
+            <input
+                type="text"
+                placeholder="Password"
+                value={password}
+                onChange={handlePasswordChange}
+            />
+            <button className='route-button' onClick={createUserFunction}>Create Account</button>
+        
     </div>
   );
 };
