@@ -34,8 +34,10 @@ const CreateUser = () => {
 
   const validateUsername = (usernameInput) => {
     if(usernameInput != null){
-      message.error("Please enter a username.");
+      return usernameInput;
     }
+    else
+      return false;
   }
 
   //handler functions for emails / passwords
@@ -94,14 +96,26 @@ const CreateUser = () => {
       };
       await runRequest();
     }
-    else if(validateEmail(email)){
+    else if(validateEmail(email) && !validatePassword(password) && validateUsername(username)){
       message.error("Invalid password!");
     }
-    else if(validatePassword(password)){
+    else if(validatePassword(password) && !validateEmail(email) && validateUsername(username)){
       message.error("Invalid email!");
     }
-    else
+    else if(validateUsername(username) && !validateEmail(email) && !validatePassword(password))
       message.error("Invalid email and password!");
+    else if(!validateUsername(username) && validateEmail(email) && validatePassword(password)){
+      message.error("Invalid username!");
+    }
+    else if(!validateUsername(username) && !validateEmail(email) && validatePassword(password)){
+      message.error("Invalid username and email!");
+    }
+    else if(!validateUsername(username) && validateEmail(email) && !validatePassword(password)){
+      message.error("Invalid username and password!");
+    }
+    else
+      message.error("Invalid username, email, and password!");
+    return;
   };
 
   return (
