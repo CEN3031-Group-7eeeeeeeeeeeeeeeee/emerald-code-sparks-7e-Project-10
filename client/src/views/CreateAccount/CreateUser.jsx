@@ -12,6 +12,7 @@ const CreateUser = () => {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordTemp, setPasswordTemp] = useState(""); 
   const [role, setRole] = useState("Student");
   const navigate = useNavigate();
 
@@ -43,9 +44,17 @@ const CreateUser = () => {
     setPassword(entry.target.value);
   };
 
+  const handleTempPasswordChange = (entry) => {
+    setPasswordTemp(entry.target.value);
+  };
+
   const createUserFunction = async (e) => {
     e.preventDefault();
     if (validateEmail(email) && validatePassword(password)) {
+      if(password !== passwordTemp){
+        message.error("Please ensure that passwords match.");
+        return; 
+      }
       const runRequest = async () => {
         try {
           const res = await createUser(username, email, password, role);
@@ -95,10 +104,16 @@ const CreateUser = () => {
         onChange={handleEmailChange}
       />
       <input
-        type="text"
+        type="password"
         placeholder="Password"
         value={password}
         onChange={handlePasswordChange}
+      />
+      <input
+        type="password"
+        placeholder="Confirm Password"
+        value={passwordTemp}
+        onChange={handleTempPasswordChange}
       />
       <h2 className="role-drop-title" htmlFor="role-names">
         Choose Role
