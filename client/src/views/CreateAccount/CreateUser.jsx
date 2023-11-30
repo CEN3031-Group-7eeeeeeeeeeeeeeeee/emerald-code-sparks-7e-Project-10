@@ -25,10 +25,17 @@ const CreateUser = () => {
   };
 
   const validatePassword = (passwordInput) => {
-    if (passwordInput != null) {
-      return passwordInput;
-    } else return false;
+    return String(passwordInput)
+      .match(
+        /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/
+      );
   };
+
+  const validateUsername = (usernameInput) => {
+    if(usernameInput != null){
+      message.error("Please enter a username.");
+    }
+  }
 
   //handler functions for emails / passwords
   const handleEmailChange = (entry) => {
@@ -45,7 +52,7 @@ const CreateUser = () => {
 
   const createUserFunction = async (e) => {
     e.preventDefault();
-    if (validateEmail(email) && validatePassword(password)) {
+    if (validateEmail(email) && validatePassword(password) && validateUsername(username)) {
       const runRequest = async () => {
         try {
           const res = await createUser(username, email, password, role);
@@ -77,7 +84,15 @@ const CreateUser = () => {
         }
       };
       await runRequest();
-    } else alert("Invalid email or password!");
+    }
+    else if(validateEmail(email)){
+      message.error("Invalid password!");
+    }
+    else if(validatePassword(password)){
+      message.error("Invalid email!");
+    }
+    else
+      message.error("Invalid email and password!");
   };
 
   return (
