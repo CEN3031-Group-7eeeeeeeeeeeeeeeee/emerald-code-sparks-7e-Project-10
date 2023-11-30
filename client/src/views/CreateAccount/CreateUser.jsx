@@ -12,6 +12,7 @@ const CreateUser = () => {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordTemp, setPasswordTemp] = useState(""); 
   const [role, setRole] = useState("Student");
   const navigate = useNavigate();
 
@@ -25,10 +26,17 @@ const CreateUser = () => {
   };
 
   const validatePassword = (passwordInput) => {
-    if (passwordInput != null) {
-      return passwordInput;
-    } else return false;
+    return String(passwordInput)
+      .match(
+        /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/
+      );
   };
+
+  const validateUsername = (usernameInput) => {
+    if(usernameInput != null){
+      message.error("Please enter a username.");
+    }
+  }
 
   //handler functions for emails / passwords
   const handleEmailChange = (entry) => {
@@ -43,9 +51,17 @@ const CreateUser = () => {
     setPassword(entry.target.value);
   };
 
+  const handleTempPasswordChange = (entry) => {
+    setPasswordTemp(entry.target.value);
+  };
+
   const createUserFunction = async (e) => {
     e.preventDefault();
-    if (validateEmail(email) && validatePassword(password)) {
+    if (validateEmail(email) && validatePassword(password) && validateUsername(username)) {
+      if(password !== passwordTemp){
+        message.error("Please ensure that passwords match.");
+        return; 
+      }
       const runRequest = async () => {
         try {
           const res = await createUser(username, email, password, role);
@@ -77,7 +93,15 @@ const CreateUser = () => {
         }
       };
       await runRequest();
-    } else alert("Invalid email or password!");
+    }
+    else if(validateEmail(email)){
+      message.error("Invalid password!");
+    }
+    else if(validatePassword(password)){
+      message.error("Invalid email!");
+    }
+    else
+      message.error("Invalid email and password!");
   };
 
   return (
@@ -95,10 +119,16 @@ const CreateUser = () => {
         onChange={handleEmailChange}
       />
       <input
-        type="text"
+        type="password"
         placeholder="Password"
         value={password}
         onChange={handlePasswordChange}
+      />
+      <input
+        type="password"
+        placeholder="Confirm Password"
+        value={passwordTemp}
+        onChange={handleTempPasswordChange}
       />
       <h2 className="role-drop-title" htmlFor="role-names">
         Choose Role

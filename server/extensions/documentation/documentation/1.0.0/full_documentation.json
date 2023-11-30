@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "11/29/2023 5:49:23 PM"
+    "x-generation-date": "11/30/2023 10:02:01 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -95,9 +95,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Activity"
-        ],
+        "tags": ["Activity"],
         "parameters": [
           {
             "name": "_limit",
@@ -283,9 +281,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Activity"
-        ],
+        "tags": ["Activity"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -350,9 +346,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Activity"
-        ],
+        "tags": ["Activity"],
         "parameters": []
       }
     },
@@ -403,9 +397,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Activity"
-        ],
+        "tags": ["Activity"],
         "parameters": [
           {
             "name": "id",
@@ -465,9 +457,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Activity"
-        ],
+        "tags": ["Activity"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -539,9 +529,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Activity"
-        ],
+        "tags": ["Activity"],
         "parameters": [
           {
             "name": "id",
@@ -607,9 +595,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Activity"
-        ],
+        "tags": ["Activity"],
         "parameters": [
           {
             "name": "id",
@@ -675,9 +661,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Activity"
-        ],
+        "tags": ["Activity"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -758,9 +742,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Activity"
-        ],
+        "tags": ["Activity"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -841,9 +823,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Authorized-workspace"
-        ],
+        "tags": ["Authorized-workspace"],
         "parameters": [
           {
             "name": "_limit",
@@ -1033,9 +1013,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Authorized-workspace"
-        ],
+        "tags": ["Authorized-workspace"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -1100,9 +1078,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Authorized-workspace"
-        ],
+        "tags": ["Authorized-workspace"],
         "parameters": []
       }
     },
@@ -1157,9 +1133,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Authorized-workspace"
-        ],
+        "tags": ["Authorized-workspace"],
         "parameters": [
           {
             "name": "id",
@@ -1223,9 +1197,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Authorized-workspace"
-        ],
+        "tags": ["Authorized-workspace"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -1297,9 +1269,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Authorized-workspace"
-        ],
+        "tags": ["Authorized-workspace"],
         "parameters": [
           {
             "name": "id",
@@ -1365,9 +1335,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Authorized-workspace"
-        ],
+        "tags": ["Authorized-workspace"],
         "parameters": [
           {
             "name": "id",
@@ -1432,9 +1400,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Block"
-        ],
+        "tags": ["Block"],
         "parameters": [
           {
             "name": "_limit",
@@ -1620,9 +1586,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Block"
-        ],
+        "tags": ["Block"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -1687,9 +1651,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Block"
-        ],
+        "tags": ["Block"],
         "parameters": []
       }
     },
@@ -1740,9 +1702,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Block"
-        ],
+        "tags": ["Block"],
         "parameters": [
           {
             "name": "id",
@@ -1802,9 +1762,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Block"
-        ],
+        "tags": ["Block"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -1876,9 +1834,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Block"
-        ],
+        "tags": ["Block"],
         "parameters": [
           {
             "name": "id",
@@ -1944,9 +1900,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Blocks-category"
-        ],
+        "tags": ["Blocks-category"],
         "parameters": [
           {
             "name": "_limit",
@@ -2136,9 +2090,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Blocks-category"
-        ],
+        "tags": ["Blocks-category"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -2203,9 +2155,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Blocks-category"
-        ],
+        "tags": ["Blocks-category"],
         "parameters": []
       }
     },
@@ -2260,9 +2210,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Blocks-category"
-        ],
+        "tags": ["Blocks-category"],
         "parameters": [
           {
             "name": "id",
@@ -2326,9 +2274,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Blocks-category"
-        ],
+        "tags": ["Blocks-category"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -2400,9 +2346,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Blocks-category"
-        ],
+        "tags": ["Blocks-category"],
         "parameters": [
           {
             "name": "id",
@@ -2468,9 +2412,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Classroom-manager"
-        ],
+        "tags": ["Classroom-manager"],
         "parameters": []
       }
     },
@@ -2524,9 +2466,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Classroom"
-        ],
+        "tags": ["Classroom"],
         "parameters": [
           {
             "name": "_limit",
@@ -2712,9 +2652,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Classroom"
-        ],
+        "tags": ["Classroom"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -2779,9 +2717,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Classroom"
-        ],
+        "tags": ["Classroom"],
         "parameters": []
       }
     },
@@ -2836,9 +2772,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Classroom"
-        ],
+        "tags": ["Classroom"],
         "parameters": []
       }
     },
@@ -2889,9 +2823,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Classroom"
-        ],
+        "tags": ["Classroom"],
         "parameters": [
           {
             "name": "id",
@@ -2951,9 +2883,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Classroom"
-        ],
+        "tags": ["Classroom"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -3025,9 +2955,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Classroom"
-        ],
+        "tags": ["Classroom"],
         "parameters": [
           {
             "name": "id",
@@ -3093,9 +3021,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Classroom"
-        ],
+        "tags": ["Classroom"],
         "parameters": [
           {
             "name": "id",
@@ -3161,9 +3087,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Classroom"
-        ],
+        "tags": ["Classroom"],
         "parameters": [
           {
             "name": "code",
@@ -3227,9 +3151,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Classroom"
-        ],
+        "tags": ["Classroom"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -3298,9 +3220,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Email"
-        ],
+        "tags": ["Email"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -3368,9 +3288,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Grade"
-        ],
+        "tags": ["Grade"],
         "parameters": [
           {
             "name": "_limit",
@@ -3556,9 +3474,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Grade"
-        ],
+        "tags": ["Grade"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -3623,9 +3539,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Grade"
-        ],
+        "tags": ["Grade"],
         "parameters": []
       }
     },
@@ -3676,9 +3590,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Grade"
-        ],
+        "tags": ["Grade"],
         "parameters": [
           {
             "name": "id",
@@ -3738,9 +3650,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Grade"
-        ],
+        "tags": ["Grade"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -3812,9 +3722,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Grade"
-        ],
+        "tags": ["Grade"],
         "parameters": [
           {
             "name": "id",
@@ -3880,9 +3788,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Learning-component-types"
-        ],
+        "tags": ["Learning-component-types"],
         "parameters": [
           {
             "name": "_limit",
@@ -4072,9 +3978,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Learning-component-types"
-        ],
+        "tags": ["Learning-component-types"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -4139,9 +4043,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Learning-component-types"
-        ],
+        "tags": ["Learning-component-types"],
         "parameters": []
       }
     },
@@ -4196,9 +4098,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Learning-component-types"
-        ],
+        "tags": ["Learning-component-types"],
         "parameters": [
           {
             "name": "id",
@@ -4262,9 +4162,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Learning-component-types"
-        ],
+        "tags": ["Learning-component-types"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -4336,9 +4234,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Learning-component-types"
-        ],
+        "tags": ["Learning-component-types"],
         "parameters": [
           {
             "name": "id",
@@ -4404,9 +4300,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Learning-components"
-        ],
+        "tags": ["Learning-components"],
         "parameters": [
           {
             "name": "_limit",
@@ -4596,9 +4490,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Learning-components"
-        ],
+        "tags": ["Learning-components"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -4663,9 +4555,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Learning-components"
-        ],
+        "tags": ["Learning-components"],
         "parameters": []
       }
     },
@@ -4720,9 +4610,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Learning-components"
-        ],
+        "tags": ["Learning-components"],
         "parameters": [
           {
             "name": "id",
@@ -4786,9 +4674,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Learning-components"
-        ],
+        "tags": ["Learning-components"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -4860,9 +4746,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Learning-components"
-        ],
+        "tags": ["Learning-components"],
         "parameters": [
           {
             "name": "id",
@@ -4928,9 +4812,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Lesson-module"
-        ],
+        "tags": ["Lesson-module"],
         "parameters": [
           {
             "name": "_limit",
@@ -5120,9 +5002,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Lesson-module"
-        ],
+        "tags": ["Lesson-module"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -5187,9 +5067,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Lesson-module"
-        ],
+        "tags": ["Lesson-module"],
         "parameters": []
       }
     },
@@ -5244,9 +5122,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Lesson-module"
-        ],
+        "tags": ["Lesson-module"],
         "parameters": [
           {
             "name": "id",
@@ -5310,9 +5186,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Lesson-module"
-        ],
+        "tags": ["Lesson-module"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -5384,9 +5258,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Lesson-module"
-        ],
+        "tags": ["Lesson-module"],
         "parameters": [
           {
             "name": "id",
@@ -5451,9 +5323,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Mentor"
-        ],
+        "tags": ["Mentor"],
         "parameters": [
           {
             "name": "_limit",
@@ -5639,9 +5509,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Mentor"
-        ],
+        "tags": ["Mentor"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -5706,9 +5574,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Mentor"
-        ],
+        "tags": ["Mentor"],
         "parameters": []
       }
     },
@@ -5759,9 +5625,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Mentor"
-        ],
+        "tags": ["Mentor"],
         "parameters": [
           {
             "name": "id",
@@ -5821,9 +5685,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Mentor"
-        ],
+        "tags": ["Mentor"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -5895,9 +5757,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Mentor"
-        ],
+        "tags": ["Mentor"],
         "parameters": [
           {
             "name": "id",
@@ -5963,9 +5823,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Sandbox"
-        ],
+        "tags": ["Sandbox"],
         "parameters": []
       }
     },
@@ -6020,9 +5878,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Sandbox"
-        ],
+        "tags": ["Sandbox"],
         "parameters": [
           {
             "name": "id",
@@ -6088,9 +5944,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Sandbox"
-        ],
+        "tags": ["Sandbox"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -6158,9 +6012,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Save"
-        ],
+        "tags": ["Save"],
         "parameters": [
           {
             "name": "_limit",
@@ -6346,9 +6198,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Save"
-        ],
+        "tags": ["Save"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -6413,9 +6263,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Save"
-        ],
+        "tags": ["Save"],
         "parameters": []
       }
     },
@@ -6470,9 +6318,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Save"
-        ],
+        "tags": ["Save"],
         "parameters": [
           {
             "name": "activity",
@@ -6534,9 +6380,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Save"
-        ],
+        "tags": ["Save"],
         "parameters": [
           {
             "name": "id",
@@ -6596,9 +6440,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Save"
-        ],
+        "tags": ["Save"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -6670,9 +6512,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Save"
-        ],
+        "tags": ["Save"],
         "parameters": [
           {
             "name": "id",
@@ -6737,9 +6577,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "School"
-        ],
+        "tags": ["School"],
         "parameters": [
           {
             "name": "_limit",
@@ -6925,9 +6763,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "School"
-        ],
+        "tags": ["School"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -6992,9 +6828,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "School"
-        ],
+        "tags": ["School"],
         "parameters": []
       }
     },
@@ -7045,9 +6879,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "School"
-        ],
+        "tags": ["School"],
         "parameters": [
           {
             "name": "id",
@@ -7107,9 +6939,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "School"
-        ],
+        "tags": ["School"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -7181,9 +7011,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "School"
-        ],
+        "tags": ["School"],
         "parameters": [
           {
             "name": "id",
@@ -7248,9 +7076,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Selection"
-        ],
+        "tags": ["Selection"],
         "parameters": [
           {
             "name": "_limit",
@@ -7436,9 +7262,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Selection"
-        ],
+        "tags": ["Selection"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -7503,9 +7327,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Selection"
-        ],
+        "tags": ["Selection"],
         "parameters": []
       }
     },
@@ -7556,9 +7378,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Selection"
-        ],
+        "tags": ["Selection"],
         "parameters": [
           {
             "name": "id",
@@ -7618,9 +7438,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Selection"
-        ],
+        "tags": ["Selection"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -7692,9 +7510,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Selection"
-        ],
+        "tags": ["Selection"],
         "parameters": [
           {
             "name": "id",
@@ -7759,9 +7575,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Session"
-        ],
+        "tags": ["Session"],
         "parameters": [
           {
             "name": "_limit",
@@ -7947,9 +7761,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Session"
-        ],
+        "tags": ["Session"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -8014,9 +7826,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Session"
-        ],
+        "tags": ["Session"],
         "parameters": []
       }
     },
@@ -8067,9 +7877,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Session"
-        ],
+        "tags": ["Session"],
         "parameters": [
           {
             "name": "id",
@@ -8129,9 +7937,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Session"
-        ],
+        "tags": ["Session"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -8203,9 +8009,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Session"
-        ],
+        "tags": ["Session"],
         "parameters": [
           {
             "name": "id",
@@ -8270,9 +8074,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Student"
-        ],
+        "tags": ["Student"],
         "parameters": [
           {
             "name": "_limit",
@@ -8458,9 +8260,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Student"
-        ],
+        "tags": ["Student"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -8525,9 +8325,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Student"
-        ],
+        "tags": ["Student"],
         "parameters": []
       }
     },
@@ -8582,9 +8380,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Student"
-        ],
+        "tags": ["Student"],
         "parameters": []
       }
     },
@@ -8635,9 +8431,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Student"
-        ],
+        "tags": ["Student"],
         "parameters": [
           {
             "name": "id",
@@ -8697,9 +8491,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Student"
-        ],
+        "tags": ["Student"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -8771,9 +8563,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Student"
-        ],
+        "tags": ["Student"],
         "parameters": [
           {
             "name": "id",
@@ -8839,9 +8629,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Student"
-        ],
+        "tags": ["Student"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -8921,9 +8709,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Submission"
-        ],
+        "tags": ["Submission"],
         "parameters": [
           {
             "name": "_limit",
@@ -9109,9 +8895,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Submission"
-        ],
+        "tags": ["Submission"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -9176,9 +8960,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Submission"
-        ],
+        "tags": ["Submission"],
         "parameters": []
       }
     },
@@ -9229,9 +9011,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Submission"
-        ],
+        "tags": ["Submission"],
         "parameters": [
           {
             "name": "id",
@@ -9291,9 +9071,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Submission"
-        ],
+        "tags": ["Submission"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -9365,9 +9143,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Submission"
-        ],
+        "tags": ["Submission"],
         "parameters": [
           {
             "name": "id",
@@ -9432,9 +9208,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Unit"
-        ],
+        "tags": ["Unit"],
         "parameters": [
           {
             "name": "_limit",
@@ -9620,9 +9394,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Unit"
-        ],
+        "tags": ["Unit"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -9687,9 +9459,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Unit"
-        ],
+        "tags": ["Unit"],
         "parameters": []
       }
     },
@@ -9740,9 +9510,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Unit"
-        ],
+        "tags": ["Unit"],
         "parameters": [
           {
             "name": "id",
@@ -9802,9 +9570,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Unit"
-        ],
+        "tags": ["Unit"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -9876,9 +9642,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Unit"
-        ],
+        "tags": ["Unit"],
         "parameters": [
           {
             "name": "id",
@@ -9944,9 +9708,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Email - Email"
-        ],
+        "tags": ["Email - Email"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -10015,9 +9777,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Email - Email"
-        ],
+        "tags": ["Email - Email"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -10086,9 +9846,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Email - Email"
-        ],
+        "tags": ["Email - Email"],
         "parameters": []
       }
     },
@@ -10143,9 +9901,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "UsersPermissions - User"
-        ],
+        "tags": ["Unclassified"],
         "parameters": [],
         "requestBody": {
           "description": "",
@@ -10213,9 +9969,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "UsersPermissions - User"
-        ],
+        "tags": ["Unclassified"],
         "parameters": []
       },
       "get": {
@@ -10264,9 +10018,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "UsersPermissions - User"
-        ],
+        "tags": ["UsersPermissions - User"],
         "parameters": []
       }
     },
@@ -10317,9 +10069,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "UsersPermissions - Role"
-        ],
+        "tags": ["UsersPermissions - Role"],
         "parameters": [
           {
             "name": "id",
@@ -10384,9 +10134,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "UsersPermissions - Role"
-        ],
+        "tags": ["UsersPermissions - Role"],
         "parameters": [
           {
             "name": "_limit",
@@ -10572,9 +10320,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "UsersPermissions - Role"
-        ],
+        "tags": ["UsersPermissions - Role"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -10635,9 +10381,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "UsersPermissions - Role"
-        ],
+        "tags": ["UsersPermissions - Role"],
         "parameters": [
           {
             "name": "role",
@@ -10712,9 +10456,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "UsersPermissions - Role"
-        ],
+        "tags": ["UsersPermissions - Role"],
         "parameters": [
           {
             "name": "role",
@@ -10779,9 +10521,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "UsersPermissions - User"
-        ],
+        "tags": ["UsersPermissions - User"],
         "parameters": [
           {
             "name": "id",
@@ -10983,9 +10723,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "UsersPermissions - User"
-        ],
+        "tags": ["UsersPermissions - User"],
         "parameters": []
       }
     },
@@ -11040,9 +10778,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "UsersPermissions - User"
-        ],
+        "tags": ["UsersPermissions - User"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -11107,9 +10843,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "UsersPermissions - User"
-        ],
+        "tags": ["UsersPermissions - User"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -11174,9 +10908,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "UsersPermissions - User"
-        ],
+        "tags": ["UsersPermissions - User"],
         "parameters": [
           {
             "name": "provider",
@@ -11242,9 +10974,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "UsersPermissions - User"
-        ],
+        "tags": ["UsersPermissions - User"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -11313,9 +11043,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "UsersPermissions - User"
-        ],
+        "tags": ["UsersPermissions - User"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -11384,9 +11112,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "UsersPermissions - User"
-        ],
+        "tags": ["UsersPermissions - User"],
         "parameters": []
       }
     },
@@ -11441,9 +11167,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "UsersPermissions - User"
-        ],
+        "tags": ["UsersPermissions - User"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -11511,9 +11235,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "UsersPermissions - User"
-        ],
+        "tags": ["UsersPermissions - User"],
         "parameters": [
           {
             "name": "_limit",
@@ -11701,9 +11423,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "UsersPermissions - User"
-        ],
+        "tags": ["UsersPermissions - User"],
         "parameters": [
           {
             "name": "id",
@@ -11763,9 +11483,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "UsersPermissions - User"
-        ],
+        "tags": ["UsersPermissions - User"],
         "parameters": [
           {
             "name": "id",
@@ -11840,9 +11558,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "UsersPermissions - User"
-        ],
+        "tags": ["UsersPermissions - User"],
         "parameters": [
           {
             "name": "id",
@@ -11861,21 +11577,13 @@
   "components": {
     "schemas": {
       "Activity": {
-        "required": [
-          "id",
-          "number",
-          "template"
-        ],
+        "required": ["id", "number", "template"],
         "properties": {
           "id": {
             "type": "string"
           },
           "lesson_module": {
-            "required": [
-              "id",
-              "number",
-              "name"
-            ],
+            "required": ["id", "number", "name"],
             "properties": {
               "id": {
                 "type": "string"
@@ -11921,10 +11629,7 @@
           "blocks": {
             "type": "array",
             "items": {
-              "required": [
-                "id",
-                "name"
-              ],
+              "required": ["id", "name"],
               "properties": {
                 "id": {
                   "type": "string"
@@ -11965,9 +11670,7 @@
           "learning_components": {
             "type": "array",
             "items": {
-              "required": [
-                "id"
-              ],
+              "required": ["id"],
               "properties": {
                 "id": {
                   "type": "string"
@@ -12002,10 +11705,7 @@
         }
       },
       "NewActivity": {
-        "required": [
-          "number",
-          "template"
-        ],
+        "required": ["number", "template"],
         "properties": {
           "lesson_module": {
             "type": "string"
@@ -12052,11 +11752,7 @@
         }
       },
       "Authorized-workspace": {
-        "required": [
-          "id",
-          "name",
-          "template"
-        ],
+        "required": ["id", "name", "template"],
         "properties": {
           "id": {
             "type": "string"
@@ -12077,10 +11773,7 @@
         }
       },
       "NewAuthorized-workspace": {
-        "required": [
-          "name",
-          "template"
-        ],
+        "required": ["name", "template"],
         "properties": {
           "name": {
             "type": "string"
@@ -12113,10 +11806,7 @@
         }
       },
       "Block": {
-        "required": [
-          "id",
-          "name"
-        ],
+        "required": ["id", "name"],
         "properties": {
           "id": {
             "type": "string"
@@ -12128,9 +11818,7 @@
             "type": "string"
           },
           "blocks_category": {
-            "required": [
-              "id"
-            ],
+            "required": ["id"],
             "properties": {
               "id": {
                 "type": "string"
@@ -12158,9 +11846,7 @@
         }
       },
       "NewBlock": {
-        "required": [
-          "name"
-        ],
+        "required": ["name"],
         "properties": {
           "name": {
             "type": "string"
@@ -12183,9 +11869,7 @@
         }
       },
       "Blocks-category": {
-        "required": [
-          "id"
-        ],
+        "required": ["id"],
         "properties": {
           "id": {
             "type": "string"
@@ -12196,10 +11880,7 @@
           "blocks": {
             "type": "array",
             "items": {
-              "required": [
-                "id",
-                "name"
-              ],
+              "required": ["id", "name"],
               "properties": {
                 "id": {
                   "type": "string"
@@ -12247,10 +11928,7 @@
         }
       },
       "Classroom": {
-        "required": [
-          "id",
-          "code"
-        ],
+        "required": ["id", "code"],
         "properties": {
           "id": {
             "type": "string"
@@ -12259,9 +11937,7 @@
             "type": "string"
           },
           "school": {
-            "required": [
-              "id"
-            ],
+            "required": ["id"],
             "properties": {
               "id": {
                 "type": "string"
@@ -12298,9 +11974,7 @@
           "sessions": {
             "type": "array",
             "items": {
-              "required": [
-                "id"
-              ],
+              "required": ["id"],
               "properties": {
                 "id": {
                   "type": "string"
@@ -12347,9 +12021,7 @@
           "mentors": {
             "type": "array",
             "items": {
-              "required": [
-                "id"
-              ],
+              "required": ["id"],
               "properties": {
                 "id": {
                   "type": "string"
@@ -12384,10 +12056,7 @@
           "students": {
             "type": "array",
             "items": {
-              "required": [
-                "id",
-                "enrolled"
-              ],
+              "required": ["id", "enrolled"],
               "properties": {
                 "id": {
                   "type": "string"
@@ -12426,10 +12095,7 @@
             "type": "string"
           },
           "grade": {
-            "required": [
-              "id",
-              "name"
-            ],
+            "required": ["id", "name"],
             "properties": {
               "id": {
                 "type": "string"
@@ -12460,10 +12126,7 @@
           "selections": {
             "type": "array",
             "items": {
-              "required": [
-                "id",
-                "current"
-              ],
+              "required": ["id", "current"],
               "properties": {
                 "id": {
                   "type": "string"
@@ -12489,9 +12152,7 @@
         }
       },
       "NewClassroom": {
-        "required": [
-          "code"
-        ],
+        "required": ["code"],
         "properties": {
           "name": {
             "type": "string"
@@ -12544,10 +12205,7 @@
         }
       },
       "Grade": {
-        "required": [
-          "id",
-          "name"
-        ],
+        "required": ["id", "name"],
         "properties": {
           "id": {
             "type": "string"
@@ -12558,10 +12216,7 @@
           "classrooms": {
             "type": "array",
             "items": {
-              "required": [
-                "id",
-                "code"
-              ],
+              "required": ["id", "code"],
               "properties": {
                 "id": {
                   "type": "string"
@@ -12620,11 +12275,7 @@
           "units": {
             "type": "array",
             "items": {
-              "required": [
-                "id",
-                "name",
-                "number"
-              ],
+              "required": ["id", "name", "number"],
               "properties": {
                 "id": {
                   "type": "string"
@@ -12662,9 +12313,7 @@
         }
       },
       "NewGrade": {
-        "required": [
-          "name"
-        ],
+        "required": ["name"],
         "properties": {
           "name": {
             "type": "string"
@@ -12690,9 +12339,7 @@
         }
       },
       "Learning-component-types": {
-        "required": [
-          "id"
-        ],
+        "required": ["id"],
         "properties": {
           "id": {
             "type": "string"
@@ -12703,9 +12350,7 @@
           "learning_components": {
             "type": "array",
             "items": {
-              "required": [
-                "id"
-              ],
+              "required": ["id"],
               "properties": {
                 "id": {
                   "type": "string"
@@ -12764,9 +12409,7 @@
         }
       },
       "Learning-components": {
-        "required": [
-          "id"
-        ],
+        "required": ["id"],
         "properties": {
           "id": {
             "type": "string"
@@ -12777,11 +12420,7 @@
           "activities": {
             "type": "array",
             "items": {
-              "required": [
-                "id",
-                "number",
-                "template"
-              ],
+              "required": ["id", "number", "template"],
               "properties": {
                 "id": {
                   "type": "string"
@@ -12832,9 +12471,7 @@
             }
           },
           "learning_component_type": {
-            "required": [
-              "id"
-            ],
+            "required": ["id"],
             "properties": {
               "id": {
                 "type": "string"
@@ -12892,11 +12529,7 @@
         }
       },
       "Lesson-module": {
-        "required": [
-          "id",
-          "number",
-          "name"
-        ],
+        "required": ["id", "number", "name"],
         "properties": {
           "id": {
             "type": "string"
@@ -12913,11 +12546,7 @@
           "activities": {
             "type": "array",
             "items": {
-              "required": [
-                "id",
-                "number",
-                "template"
-              ],
+              "required": ["id", "number", "template"],
               "properties": {
                 "id": {
                   "type": "string"
@@ -12968,11 +12597,7 @@
             }
           },
           "unit": {
-            "required": [
-              "id",
-              "name",
-              "number"
-            ],
+            "required": ["id", "name", "number"],
             "properties": {
               "id": {
                 "type": "string"
@@ -13015,10 +12640,7 @@
         }
       },
       "NewLesson-module": {
-        "required": [
-          "number",
-          "name"
-        ],
+        "required": ["number", "name"],
         "properties": {
           "number": {
             "type": "number"
@@ -13053,9 +12675,7 @@
         }
       },
       "Mentor": {
-        "required": [
-          "id"
-        ],
+        "required": ["id"],
         "properties": {
           "id": {
             "type": "string"
@@ -13067,9 +12687,7 @@
             "type": "string"
           },
           "school": {
-            "required": [
-              "id"
-            ],
+            "required": ["id"],
             "properties": {
               "id": {
                 "type": "string"
@@ -13106,10 +12724,7 @@
           "classrooms": {
             "type": "array",
             "items": {
-              "required": [
-                "id",
-                "code"
-              ],
+              "required": ["id", "code"],
               "properties": {
                 "id": {
                   "type": "string"
@@ -13166,11 +12781,7 @@
             }
           },
           "user": {
-            "required": [
-              "id",
-              "username",
-              "email"
-            ],
+            "required": ["id", "username", "email"],
             "properties": {
               "id": {
                 "type": "string"
@@ -13241,20 +12852,13 @@
         }
       },
       "Save": {
-        "required": [
-          "id",
-          "workspace"
-        ],
+        "required": ["id", "workspace"],
         "properties": {
           "id": {
             "type": "string"
           },
           "activity": {
-            "required": [
-              "id",
-              "number",
-              "template"
-            ],
+            "required": ["id", "number", "template"],
             "properties": {
               "id": {
                 "type": "string"
@@ -13304,10 +12908,7 @@
             }
           },
           "student": {
-            "required": [
-              "id",
-              "enrolled"
-            ],
+            "required": ["id", "enrolled"],
             "properties": {
               "id": {
                 "type": "string"
@@ -13348,9 +12949,7 @@
             "type": "object"
           },
           "session": {
-            "required": [
-              "id"
-            ],
+            "required": ["id"],
             "properties": {
               "id": {
                 "type": "string"
@@ -13396,9 +12995,7 @@
         }
       },
       "NewSave": {
-        "required": [
-          "workspace"
-        ],
+        "required": ["workspace"],
         "properties": {
           "activity": {
             "type": "string"
@@ -13424,9 +13021,7 @@
         }
       },
       "School": {
-        "required": [
-          "id"
-        ],
+        "required": ["id"],
         "properties": {
           "id": {
             "type": "string"
@@ -13443,10 +13038,7 @@
           "classrooms": {
             "type": "array",
             "items": {
-              "required": [
-                "id",
-                "code"
-              ],
+              "required": ["id", "code"],
               "properties": {
                 "id": {
                   "type": "string"
@@ -13505,9 +13097,7 @@
           "mentors": {
             "type": "array",
             "items": {
-              "required": [
-                "id"
-              ],
+              "required": ["id"],
               "properties": {
                 "id": {
                   "type": "string"
@@ -13573,19 +13163,13 @@
         }
       },
       "Selection": {
-        "required": [
-          "id",
-          "current"
-        ],
+        "required": ["id", "current"],
         "properties": {
           "id": {
             "type": "string"
           },
           "classroom": {
-            "required": [
-              "id",
-              "code"
-            ],
+            "required": ["id", "code"],
             "properties": {
               "id": {
                 "type": "string"
@@ -13641,11 +13225,7 @@
             }
           },
           "lesson_module": {
-            "required": [
-              "id",
-              "number",
-              "name"
-            ],
+            "required": ["id", "number", "name"],
             "properties": {
               "id": {
                 "type": "string"
@@ -13689,9 +13269,7 @@
         }
       },
       "NewSelection": {
-        "required": [
-          "current"
-        ],
+        "required": ["current"],
         "properties": {
           "classroom": {
             "type": "string"
@@ -13712,18 +13290,13 @@
         }
       },
       "Session": {
-        "required": [
-          "id"
-        ],
+        "required": ["id"],
         "properties": {
           "id": {
             "type": "string"
           },
           "classroom": {
-            "required": [
-              "id",
-              "code"
-            ],
+            "required": ["id", "code"],
             "properties": {
               "id": {
                 "type": "string"
@@ -13781,10 +13354,7 @@
           "students": {
             "type": "array",
             "items": {
-              "required": [
-                "id",
-                "enrolled"
-              ],
+              "required": ["id", "enrolled"],
               "properties": {
                 "id": {
                   "type": "string"
@@ -13882,10 +13452,7 @@
           "saves": {
             "type": "array",
             "items": {
-              "required": [
-                "id",
-                "workspace"
-              ],
+              "required": ["id", "workspace"],
               "properties": {
                 "id": {
                   "type": "string"
@@ -13915,11 +13482,7 @@
             }
           },
           "unit": {
-            "required": [
-              "id",
-              "name",
-              "number"
-            ],
+            "required": ["id", "name", "number"],
             "properties": {
               "id": {
                 "type": "string"
@@ -13954,10 +13517,7 @@
             }
           },
           "grade": {
-            "required": [
-              "id",
-              "name"
-            ],
+            "required": ["id", "name"],
             "properties": {
               "id": {
                 "type": "string"
@@ -13986,11 +13546,7 @@
             }
           },
           "lesson_module": {
-            "required": [
-              "id",
-              "number",
-              "name"
-            ],
+            "required": ["id", "number", "name"],
             "properties": {
               "id": {
                 "type": "string"
@@ -14070,10 +13626,7 @@
         }
       },
       "Student": {
-        "required": [
-          "id",
-          "enrolled"
-        ],
+        "required": ["id", "enrolled"],
         "properties": {
           "id": {
             "type": "string"
@@ -14085,10 +13638,7 @@
             "type": "string"
           },
           "classroom": {
-            "required": [
-              "id",
-              "code"
-            ],
+            "required": ["id", "code"],
             "properties": {
               "id": {
                 "type": "string"
@@ -14146,9 +13696,7 @@
           "sessions": {
             "type": "array",
             "items": {
-              "required": [
-                "id"
-              ],
+              "required": ["id"],
               "properties": {
                 "id": {
                   "type": "string"
@@ -14203,9 +13751,7 @@
         }
       },
       "NewStudent": {
-        "required": [
-          "enrolled"
-        ],
+        "required": ["enrolled"],
         "properties": {
           "name": {
             "type": "string"
@@ -14239,14 +13785,7 @@
         }
       },
       "Submission": {
-        "required": [
-          "id",
-          "status",
-          "workspace",
-          "board",
-          "sketch",
-          "sandbox"
-        ],
+        "required": ["id", "status", "workspace", "board", "sketch", "sandbox"],
         "properties": {
           "id": {
             "type": "string"
@@ -14281,9 +13820,7 @@
             "default": false
           },
           "session": {
-            "required": [
-              "id"
-            ],
+            "required": ["id"],
             "properties": {
               "id": {
                 "type": "string"
@@ -14327,11 +13864,7 @@
             }
           },
           "activity": {
-            "required": [
-              "id",
-              "number",
-              "template"
-            ],
+            "required": ["id", "number", "template"],
             "properties": {
               "id": {
                 "type": "string"
@@ -14386,13 +13919,7 @@
         }
       },
       "NewSubmission": {
-        "required": [
-          "status",
-          "workspace",
-          "board",
-          "sketch",
-          "sandbox"
-        ],
+        "required": ["status", "workspace", "board", "sketch", "sandbox"],
         "properties": {
           "status": {
             "type": "string",
@@ -14441,20 +13968,13 @@
         }
       },
       "Unit": {
-        "required": [
-          "id",
-          "name",
-          "number"
-        ],
+        "required": ["id", "name", "number"],
         "properties": {
           "id": {
             "type": "string"
           },
           "grade": {
-            "required": [
-              "id",
-              "name"
-            ],
+            "required": ["id", "name"],
             "properties": {
               "id": {
                 "type": "string"
@@ -14497,11 +14017,7 @@
           "lesson_modules": {
             "type": "array",
             "items": {
-              "required": [
-                "id",
-                "number",
-                "name"
-              ],
+              "required": ["id", "number", "name"],
               "properties": {
                 "id": {
                   "type": "string"
@@ -14542,10 +14058,7 @@
         }
       },
       "NewUnit": {
-        "required": [
-          "name",
-          "number"
-        ],
+        "required": ["name", "number"],
         "properties": {
           "grade": {
             "type": "string"
@@ -14577,10 +14090,7 @@
         }
       },
       "UsersPermissionsRole": {
-        "required": [
-          "id",
-          "name"
-        ],
+        "required": ["id", "name"],
         "properties": {
           "id": {
             "type": "string"
@@ -14598,13 +14108,7 @@
           "permissions": {
             "type": "array",
             "items": {
-              "required": [
-                "id",
-                "type",
-                "controller",
-                "action",
-                "enabled"
-              ],
+              "required": ["id", "type", "controller", "action", "enabled"],
               "properties": {
                 "id": {
                   "type": "string"
@@ -14639,11 +14143,7 @@
           "users": {
             "type": "array",
             "items": {
-              "required": [
-                "id",
-                "username",
-                "email"
-              ],
+              "required": ["id", "username", "email"],
               "properties": {
                 "id": {
                   "type": "string"
@@ -14687,9 +14187,7 @@
         }
       },
       "NewUsersPermissionsRole": {
-        "required": [
-          "name"
-        ],
+        "required": ["name"],
         "properties": {
           "name": {
             "type": "string",
@@ -14722,11 +14220,7 @@
         }
       },
       "UsersPermissionsUser": {
-        "required": [
-          "id",
-          "username",
-          "email"
-        ],
+        "required": ["id", "username", "email"],
         "properties": {
           "id": {
             "type": "string"
@@ -14751,10 +14245,7 @@
             "default": false
           },
           "role": {
-            "required": [
-              "id",
-              "name"
-            ],
+            "required": ["id", "name"],
             "properties": {
               "id": {
                 "type": "string"
@@ -14791,10 +14282,7 @@
         }
       },
       "NewUsersPermissionsUser": {
-        "required": [
-          "username",
-          "email"
-        ],
+        "required": ["username", "email"],
         "properties": {
           "username": {
             "type": "string",
@@ -14838,10 +14326,7 @@
         }
       },
       "Error": {
-        "required": [
-          "code",
-          "message"
-        ],
+        "required": ["code", "message"],
         "properties": {
           "code": {
             "type": "integer",
