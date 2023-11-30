@@ -9,7 +9,6 @@ import useCurrentUser from "../../Utils/useCurrentUser";
 import { message } from "antd";
 
 export default function UserSettings() {
-  // const user = JSON.parse(sessionStorage.getItem("user"));
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
