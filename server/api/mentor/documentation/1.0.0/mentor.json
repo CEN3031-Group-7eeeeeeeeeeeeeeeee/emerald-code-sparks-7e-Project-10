@@ -664,6 +664,12 @@
               "role": {
                 "type": "string"
               },
+              "students": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "created_by": {
                 "type": "string"
               },
