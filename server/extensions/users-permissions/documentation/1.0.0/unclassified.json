@@ -1,9 +1,9 @@
 {
   "paths": {
     "/users/me": {
-      "delete": {
+      "put": {
         "deprecated": false,
-        "description": "Delete the currently logged in user",
+        "description": "Update the current user's profile",
         "responses": {
           "200": {
             "description": "response",
@@ -54,7 +54,22 @@
         "tags": [
           "Unclassified"
         ],
-        "parameters": []
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "foo": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
   },
