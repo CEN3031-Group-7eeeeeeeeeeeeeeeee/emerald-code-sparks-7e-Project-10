@@ -464,9 +464,44 @@ module.exports = {
       );
     }
 
-    const role = await strapi
+    let role;
+
+    if (params.role) {
+      role = await strapi
+        .query('role', 'users-permissions')
+        .findOne({ id: params.role }, []);
+      
+      //if role was not found with ID, try with Role Name
+      if (!role) {
+        role = await strapi
+        .query('role', 'users-permissions')
+        .findOne({ name: params.role }, []);
+      }
+      
+      //if role was not found with ID or Role Name, try with Role Type
+      if (!role) {
+        role = await strapi
+        .query('role', 'users-permissions')
+        .findOne({ type: params.role }, []);
+      }
+
+      if (!role){
+        return ctx.badRequest(
+          null,
+          formatError({
+            id: 'Auth.form.error.role.notFound',
+            message: `Role ${params.role} not found.`,
+          })
+        );
+      }
+    }
+    //if no role was provided, use the default role
+    else {
+      role = await strapi
       .query('role', 'users-permissions')
       .findOne({ type: settings.default_role }, []);
+    }
+    
 
     if (!role) {
       return ctx.badRequest(

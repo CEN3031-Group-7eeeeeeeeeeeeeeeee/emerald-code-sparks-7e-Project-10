@@ -768,12 +768,8 @@ export const createUser = async (username, email, password, role) => {
   if (res.err) {
     return res;
   }
-  //Set user session. Needed so that the user is authenticated and can change their role to student
+  //Set user session
   setUserSession(res.data.jwt, JSON.stringify(res.data.user));
-
-  //update user role since Strapi always creates users with the default role
-  const updatedUser = (await updateUser({ role: newUser.role })).data;
-  res.data.user = updatedUser;
   return res;
 };
 
