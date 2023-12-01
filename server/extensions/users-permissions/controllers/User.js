@@ -41,9 +41,11 @@ module.exports = {
       return (ctx.response.status = 401);
     }
 
+    const newUser = { ...ctx.request.body };
+
     return await strapi
       .query("user", "users-permissions")
-      .update({ id: ctx.state.user.id }, { ...ctx.request.body });
+      .update({ id: ctx.state.user.id }, newUser);
   },
 
   async deleteMe(ctx) {
