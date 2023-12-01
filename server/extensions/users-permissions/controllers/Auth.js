@@ -502,13 +502,24 @@ module.exports = {
       .findOne({ type: settings.default_role }, []);
     }
     
-
+    
     if (!role) {
       return ctx.badRequest(
         null,
         formatError({
           id: 'Auth.form.error.role.notFound',
           message: 'Impossible to find the default role.',
+        })
+      );
+    }
+
+    //Ensure role can only be student or teacher
+    if (role.type !== 'student' && role.type !== 'authenticated' && role.type !== 'content_creator' && role.type !== 'researcher' && role.type !== 'public') {
+      return ctx.badRequest(
+        null,
+        formatError({
+          id: 'Auth.form.error.role.invalid',
+          message: 'You are not allowed to create an account with role ' + role.type + '.',
         })
       );
     }

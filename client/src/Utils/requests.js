@@ -69,6 +69,28 @@ export const getTeachers = async () =>
     error: "Teachers could not be retrieved.",
   });
 
+//Creates a new teacher linked to the current user
+export const createTeacher = async(teacher) => {
+
+  /*Teacher object should be in the form:
+    {
+      first_name: "teacher",
+      last_name: "teacher",
+      school (optional): "school",
+      classrooms (optional): [
+        "classroom ids"
+      ]
+    }
+  */
+  return makeRequest({
+    method: POST,
+    path: `${server}/mentors`,
+    data: teacher,
+    auth: true,
+    error: "Teacher could not be created.",
+  });
+}
+
 export const getAllClassrooms = async () =>
   makeRequest({
     method: GET,
@@ -698,13 +720,6 @@ export const getCurrentUser = async () => {
 };
 
 export const updateUser = async (newUser) => {
-  // makeRequest({
-  //   method: PUT,
-  //   path: `${server}/users/${id}`,
-  //   data: newUser,
-  //   auth: true,
-  //   error: "Unable to update user",
-  // });
 
   return await makeRequest({
     method: PUT,
@@ -712,20 +727,6 @@ export const updateUser = async (newUser) => {
     data: newUser,
     auth: true,
     error: "Unable to update user",
-  });
-};
-//may be a better implementation of updateUser?
-export const updateCurrUser = async (email, username, password) => {
-  return makeRequest({
-    method: PUT,
-    path: `${server}/users/me`,
-    data: {
-      username,
-      email,
-      password,
-    },
-    auth: true,
-    error: "Unable to update current user",
   });
 };
 
@@ -744,7 +745,8 @@ export const createUser = async (username, email, password, role) => {
     } else if (
       userRole == "classroommanager" ||
       userRole == "classroom manager" ||
-      userRole == "teacher"
+      userRole == "teacher" ||
+      userRole == "mentor"
     ) {
       newUser.role = roleIDs.ClassroomManager;
     } else if (userRole == "contentcreator" || userRole == "content creator") {
@@ -770,6 +772,21 @@ export const createUser = async (username, email, password, role) => {
   }
   //Set user session
   setUserSession(res.data.jwt, JSON.stringify(res.data.user));
+
+  //Create Mentor in database if user is a teacher
+  if (res.data.user.role.type == "authenticated" || res.data.user.role.name == "Classroom Manager") {
+    const mentor = {
+      first_name: username,
+      last_name: "",
+      // school: "school",
+    };
+    const mentorRes = await createTeacher(mentor);
+    if (mentorRes.err) {
+      //Delete user if mentor creation fails
+      await deleteCurrentUser();
+      return mentorRes;
+    }
+  }
   return res;
 };
 
