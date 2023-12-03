@@ -5,7 +5,7 @@ module.exports = async (ctx, next) => {
   const userIsStudent =
     ctx.state.user.isStudent ||
     (ctx.state.user.role && ctx.state.user.role.type === "student");
-  strapi.log.debug("userIsStudent: ", userIsStudent);
+
   if (ctx.state.user && userIsStudent) {
     // Go to next policy or controller
     return await next();

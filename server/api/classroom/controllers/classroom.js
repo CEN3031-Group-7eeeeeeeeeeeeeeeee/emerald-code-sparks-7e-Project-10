@@ -22,6 +22,9 @@ module.exports = {
     //Handle personal accounts
     else {
       //Get all "student" objects / organizational accounts belonging to this account
+      strapi.log.debug(
+        "Not yet implemented-- Tried to get classrooms belonging to student PERSONAL account"
+      );
     }
 
     // get the classroom
