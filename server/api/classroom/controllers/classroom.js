@@ -17,6 +17,26 @@ module.exports = {
 
     //Handle organizaional accounts
     if (session) {
+      // get the classroom
+      const sessionResponse = await strapi.services.session.findOne({
+        id: session,
+      });
+
+      strapi.log.debug("sessionResponse: ", sessionResponse);
+      const ids = sessionResponse.classroom.id;
+
+      // get the current learning standard
+      const selection = await strapi.services.selection.findOne(
+        { classroom: ids, current: true },
+        ["lesson_module.activities", "classroom.grade"]
+      );
+      // return the classroom and learning standard or 404 if there is no current
+      return selection
+        ? {
+            classroom: selection.classroom,
+            lesson_module: selection.lesson_module,
+          }
+        : selection;
     }
 
     //Handle personal accounts
@@ -25,28 +45,12 @@ module.exports = {
       strapi.log.debug(
         "Not yet implemented-- Tried to get classrooms belonging to student PERSONAL account"
       );
+
+      return {
+        classroom: null,
+        lesson_module: null,
+      };
     }
-
-    // get the classroom
-    const sessionResponse = await strapi.services.session.findOne({
-      id: session,
-    });
-
-    strapi.log.debug("sessionResponse: ", sessionResponse);
-    const ids = sessionResponse.classroom.id;
-
-    // get the current learning standard
-    const selection = await strapi.services.selection.findOne(
-      { classroom: ids, current: true },
-      ["lesson_module.activities", "classroom.grade"]
-    );
-    // return the classroom and learning standard or 404 if there is no current
-    return selection
-      ? {
-          classroom: selection.classroom,
-          lesson_module: selection.lesson_module,
-        }
-      : selection;
   },
 
   /**
