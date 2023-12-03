@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import NavBar from "../../components/NavBar/NavBar";
 import { postUser, setUserSession } from "../../Utils/AuthRequests";
 
-
 import "./TeacherLogin.less";
 
 const useFormInput = (initialValue) => {
@@ -37,6 +36,8 @@ export default function TeacherLogin() {
           navigate("/ccdashboard");
         } else if (response.data.user.role.name === "Researcher") {
           navigate("/report");
+        } else if (response.data.user.role.name === "Student") {
+          navigate("/student");
         } else {
           navigate("/dashboard");
         }

@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 
-const { sanitizeEntity } = require('strapi-utils');
+const { sanitizeEntity } = require("strapi-utils");
 
 module.exports = {
   /**
@@ -10,18 +10,32 @@ module.exports = {
    * @param {Object} user
    */
   async student(ctx) {
+    //If student is using an organizational (one classroom) account,
+    //then the classroom information is stored in "session".
     const { session } = ctx.state.user;
+    let classrooms = [];
+
+    //Handle organizaional accounts
+    if (session) {
+    }
+
+    //Handle personal accounts
+    else {
+      //Get all "student" objects / organizational accounts belonging to this account
+    }
 
     // get the classroom
     const sessionResponse = await strapi.services.session.findOne({
       id: session,
     });
+
+    strapi.log.debug("sessionResponse: ", sessionResponse);
     const ids = sessionResponse.classroom.id;
 
     // get the current learning standard
     const selection = await strapi.services.selection.findOne(
       { classroom: ids, current: true },
-      ['lesson_module.activities', 'classroom.grade']
+      ["lesson_module.activities", "classroom.grade"]
     );
     // return the classroom and learning standard or 404 if there is no current
     return selection
@@ -71,18 +85,18 @@ module.exports = {
    */
   async create(ctx) {
     // ensure request was not sent as formdata
-    if (ctx.is('multipart'))
-      return ctx.badRequest('Multipart requests are not accepted!', {
-        id: 'Classroom.create.format.invalid',
-        error: 'ValidationError',
+    if (ctx.is("multipart"))
+      return ctx.badRequest("Multipart requests are not accepted!", {
+        id: "Classroom.create.format.invalid",
+        error: "ValidationError",
       });
 
     // ensure the request has the right number of params
     const params = Object.keys(ctx.request.body).length;
     if (params !== 3)
-      return ctx.badRequest('Invalid number of params!', {
-        id: 'Classroom.create.body.invalid',
-        error: 'ValidationError',
+      return ctx.badRequest("Invalid number of params!", {
+        id: "Classroom.create.body.invalid",
+        error: "ValidationError",
       });
 
     // validate the request
@@ -92,25 +106,25 @@ module.exports = {
       !strapi.services.validator.isInt(school) ||
       !strapi.services.validator.isInt(grade)
     )
-      return ctx.badRequest('A name, school, and grade must be provided!', {
-        id: 'Classroom.create.body.invalid',
-        error: 'ValidationError',
+      return ctx.badRequest("A name, school, and grade must be provided!", {
+        id: "Classroom.create.body.invalid",
+        error: "ValidationError",
       });
 
     // ensure the school is valid
     const validSchool = await strapi.services.school.findOne({ id: school });
     if (!validSchool)
-      return ctx.notFound('The school provided is invalid!', {
-        id: 'Classroom.create.school.invalid',
-        error: 'ValidationError',
+      return ctx.notFound("The school provided is invalid!", {
+        id: "Classroom.create.school.invalid",
+        error: "ValidationError",
       });
 
     // ensure the grade is valid
     const validGrade = await strapi.services.grade.findOne({ id: grade });
     if (!validGrade)
-      return ctx.notFound('The grade provided is invalid!', {
-        id: 'Classroom.create.grade.invalid',
-        error: 'ValidationError',
+      return ctx.notFound("The grade provided is invalid!", {
+        id: "Classroom.create.grade.invalid",
+        error: "ValidationError",
       });
 
     // add a unique code to the request body
@@ -123,7 +137,7 @@ module.exports = {
 
   async workspaces(ctx) {
     const { id } = ctx.params;
-    const classroom = await strapi.services.classroom.findOne({id: id});
+    const classroom = await strapi.services.classroom.findOne({ id: id });
     // check if the classroom exists
     let response;
     if (classroom) {
@@ -142,35 +156,35 @@ module.exports = {
    */
   async join(ctx) {
     // ensure request was not sent as formdata
-    if (ctx.is('multipart'))
-      return ctx.badRequest('Multipart requests are not accepted!', {
-        id: 'Classroom.join.format.invalid',
-        error: 'ValidationError',
+    if (ctx.is("multipart"))
+      return ctx.badRequest("Multipart requests are not accepted!", {
+        id: "Classroom.join.format.invalid",
+        error: "ValidationError",
       });
 
     // ensure the request has the right number of params
     const params = Object.keys(ctx.request.body).length;
     if (params !== 1)
-      return ctx.badRequest('Invalid number of params!', {
-        id: 'Classroom.join.body.invalid',
-        error: 'ValidationError',
+      return ctx.badRequest("Invalid number of params!", {
+        id: "Classroom.join.body.invalid",
+        error: "ValidationError",
       });
 
     // validate the request
     const { code } = ctx.params;
     const { students } = ctx.request.body;
     if (!strapi.services.validator.isIntArray(students))
-      return ctx.badRequest('Must provide at least one integer studentId!', {
-        id: 'Classroom.join.body.invalid',
-        error: 'ValidationError',
+      return ctx.badRequest("Must provide at least one integer studentId!", {
+        id: "Classroom.join.body.invalid",
+        error: "ValidationError",
       });
 
     // ensure the code corresponds to an active classroom
     const { classroom } = await strapi.services.classroom.findByCode(code);
     if (!classroom)
       return ctx.notFound(
-        'The code provided does not correspond to a valid classroom!',
-        { id: 'Classroom.join.code.invalid', error: 'ValidationError' }
+        "The code provided does not correspond to a valid classroom!",
+        { id: "Classroom.join.code.invalid", error: "ValidationError" }
       );
 
     // ensure all the students can join this classroom
@@ -181,21 +195,22 @@ module.exports = {
       // check if the student belongs to the classrooom
       if (!student)
         return ctx.notFound(
-          'One or more of the students do not belong to the classroom!',
-          { id: 'Classroom.join.studentId.invalid', error: 'ValidationError' }
+          "One or more of the students do not belong to the classroom!",
+          { id: "Classroom.join.studentId.invalid", error: "ValidationError" }
         );
 
       // check if the student is enrolled
       if (!student.enrolled)
-        return ctx.notFound('One or more of the students is unenrolled!', {
-          id: 'Classroom.join.student.unenrolled',
-          error: 'ValidationError',
+        return ctx.notFound("One or more of the students is unenrolled!", {
+          id: "Classroom.join.student.unenrolled",
+          error: "ValidationError",
         });
     }
 
     // get the selected unit and lesson for the session
-    const { lesson_module } =
-      await strapi.services.selection.findCurrSelection(classroom.id);
+    const { lesson_module } = await strapi.services.selection.findCurrSelection(
+      classroom.id
+    );
 
     // create a new session for the students
     const session = await strapi.services.session.create({
@@ -218,7 +233,7 @@ module.exports = {
 
     // return a jwt for future requests and the students
     return {
-      jwt: strapi.plugins['users-permissions'].services.jwt.issue({
+      jwt: strapi.plugins["users-permissions"].services.jwt.issue({
         ids: students,
         session: session.id,
         classroom: classroom.id,
