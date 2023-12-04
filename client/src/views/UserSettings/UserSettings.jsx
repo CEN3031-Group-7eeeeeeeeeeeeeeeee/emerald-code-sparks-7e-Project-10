@@ -52,7 +52,7 @@ export default function UserSettings() {
     console.log(`New email: ${email}`);
 
     // const newUser = { ...user, username, email, password };
-    const newUser = { ...user, username, email };
+    const newUser = { ...user, username, email, password };
     console.log(JSON.stringify(newUser));
     updateUser(newUser)
       .then((response) => {

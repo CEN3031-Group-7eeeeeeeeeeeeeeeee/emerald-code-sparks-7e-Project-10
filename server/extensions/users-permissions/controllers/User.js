@@ -43,6 +43,10 @@ module.exports = {
 
     const newUser = { ...ctx.request.body };
 
+    newUser.password = await strapi.plugins[
+      "users-permissions"
+    ].services.user.hashPassword(newUser); 
+
     return await strapi
       .query("user", "users-permissions")
       .update({ id: ctx.state.user.id }, newUser);
