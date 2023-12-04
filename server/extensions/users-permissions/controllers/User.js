@@ -42,6 +42,9 @@ module.exports = {
     }
 
     const newUser = { ...ctx.request.body };
+    if ('password' in newUser && newUser.password) {
+      newUser.password = await strapi.plugins["users-permissions"].services.user.hashPassword(newUser.password);
+    }
 
     newUser.password = await strapi.plugins[
       "users-permissions"
