@@ -12,7 +12,7 @@ const CreateUser = () => {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [passwordTemp, setPasswordTemp] = useState(""); 
+  const [passwordTemp, setPasswordTemp] = useState("");
   const [role, setRole] = useState("Student");
   const navigate = useNavigate();
 
@@ -26,19 +26,16 @@ const CreateUser = () => {
   };
 
   const validatePassword = (passwordInput) => {
-    return String(passwordInput)
-      .match(
-        /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/
-      );
+    return String(passwordInput).match(
+      /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/
+    );
   };
 
   const validateUsername = (usernameInput) => {
-    if(usernameInput != null){
+    if (usernameInput != null) {
       return usernameInput;
-    }
-    else
-      return false;
-  }
+    } else return false;
+  };
 
   //handler functions for emails / passwords
   const handleEmailChange = (entry) => {
@@ -59,10 +56,14 @@ const CreateUser = () => {
 
   const createUserFunction = async (e) => {
     e.preventDefault();
-    if (validateEmail(email) && validatePassword(password) && validateUsername(username)) {
-      if(password !== passwordTemp){
+    if (
+      validateEmail(email) &&
+      validatePassword(password) &&
+      validateUsername(username)
+    ) {
+      if (password !== passwordTemp) {
         message.error("Please ensure that passwords match.");
-        return; 
+        return;
       }
       const runRequest = async () => {
         try {
@@ -95,26 +96,43 @@ const CreateUser = () => {
         }
       };
       await runRequest();
-    }
-    else if(validateEmail(email) && !validatePassword(password) && validateUsername(username)){
+    } else if (
+      validateEmail(email) &&
+      !validatePassword(password) &&
+      validateUsername(username)
+    ) {
       message.error("Invalid password!");
-    }
-    else if(validatePassword(password) && !validateEmail(email) && validateUsername(username)){
+    } else if (
+      validatePassword(password) &&
+      !validateEmail(email) &&
+      validateUsername(username)
+    ) {
       message.error("Invalid email!");
-    }
-    else if(validateUsername(username) && !validateEmail(email) && !validatePassword(password))
+    } else if (
+      validateUsername(username) &&
+      !validateEmail(email) &&
+      !validatePassword(password)
+    )
       message.error("Invalid email and password!");
-    else if(!validateUsername(username) && validateEmail(email) && validatePassword(password)){
+    else if (
+      !validateUsername(username) &&
+      validateEmail(email) &&
+      validatePassword(password)
+    ) {
       message.error("Invalid username!");
-    }
-    else if(!validateUsername(username) && !validateEmail(email) && validatePassword(password)){
+    } else if (
+      !validateUsername(username) &&
+      !validateEmail(email) &&
+      validatePassword(password)
+    ) {
       message.error("Invalid username and email!");
-    }
-    else if(!validateUsername(username) && validateEmail(email) && !validatePassword(password)){
+    } else if (
+      !validateUsername(username) &&
+      validateEmail(email) &&
+      !validatePassword(password)
+    ) {
       message.error("Invalid username and password!");
-    }
-    else
-      message.error("Invalid username, email, and password!");
+    } else message.error("Invalid username, email, and password!");
     return;
   };
 
