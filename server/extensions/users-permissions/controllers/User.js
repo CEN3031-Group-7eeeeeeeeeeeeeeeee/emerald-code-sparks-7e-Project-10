@@ -42,6 +42,13 @@ module.exports = {
     }
 
     const newUser = { ...ctx.request.body };
+    if (newUser.password) {
+      newUser.password = await strapi.plugins["users-permissions"].services.user.hashPassword(newUser);
+    }
+    else {
+      //remove password field from user if it is not being updates
+      delete newUser.password;
+    }
 
     return await strapi
       .query("user", "users-permissions")
