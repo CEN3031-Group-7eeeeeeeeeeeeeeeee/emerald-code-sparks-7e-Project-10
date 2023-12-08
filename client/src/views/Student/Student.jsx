@@ -72,7 +72,10 @@ function Student() {
             );
           })
         ) : (
-          <></>
+          <div>
+            <p>There is currently no active learning standard set.</p>
+            <p>When your classroom manager selects one, it will appear here.</p>
+          </div>
         )}
       </div>
     </div>
