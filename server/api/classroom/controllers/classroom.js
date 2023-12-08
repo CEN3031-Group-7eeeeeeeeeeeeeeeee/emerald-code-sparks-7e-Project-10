@@ -32,10 +32,12 @@ module.exports = {
       );
       // return the classroom and learning standard or 404 if there is no current
       return selection
-        ? {
-            classroom: selection.classroom,
-            lesson_module: selection.lesson_module,
-          }
+        ? [
+            {
+              classroom: selection.classroom,
+              lesson_module: selection.lesson_module,
+            },
+          ]
         : selection;
     }
 
@@ -67,13 +69,13 @@ module.exports = {
           const selection = await strapi.services.selection.findOne(
             { classroom: thisStudentsClassroom, current: true },
             ["lesson_module.activities", "classroom.grade"]
-          )
+          );
           return {
             classroom: selection.classroom,
             lesson_module: selection.lesson_module,
           };
         }
-      })
+      });
 
       classrooms = await Promise.all(promises);
 
@@ -83,10 +85,12 @@ module.exports = {
         "Not yet implemented-- Tried to get classrooms belonging to student PERSONAL account"
       );
 
-      return classrooms ? classrooms :{
-        classroom: null,
-        lesson_module: null,
-      };
+      return classrooms
+        ? classrooms
+        : {
+            classroom: null,
+            lesson_module: null,
+          };
     }
   },
 
