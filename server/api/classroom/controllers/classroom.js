@@ -61,25 +61,21 @@ module.exports = {
         return handleError("No students found for this user");
       }
 
-      //Get all classrooms belonging to these students
-      await students.forEach(async (student) => {
+      const promises = students.map(async (student) => {
         const thisStudentsClassroom = student.classroom;
         if (thisStudentsClassroom) {
-          strapi.log.debug("thisStudentsClassroom: ", thisStudentsClassroom);
           const selection = await strapi.services.selection.findOne(
             { classroom: thisStudentsClassroom, current: true },
             ["lesson_module.activities", "classroom.grade"]
-          );
-          strapi.log.debug("selection: ", selection);
-          strapi.log.debug("pushing to classrooms");
-          classrooms.push({
+          )
+          return {
             classroom: selection.classroom,
             lesson_module: selection.lesson_module,
-          });
+          };
         }
-      });
+      })
 
-      strapi.log.debug("done pushing to classrooms");
+      classrooms = await Promise.all(promises);
 
       strapi.log.debug("classrooms: ", classrooms);
 
@@ -87,7 +83,7 @@ module.exports = {
         "Not yet implemented-- Tried to get classrooms belonging to student PERSONAL account"
       );
 
-      return {
+      return classrooms ? classrooms :{
         classroom: null,
         lesson_module: null,
       };
