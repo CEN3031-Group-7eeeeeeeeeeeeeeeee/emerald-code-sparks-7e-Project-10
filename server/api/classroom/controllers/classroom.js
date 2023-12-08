@@ -13,7 +13,7 @@ module.exports = {
     //If student is using an organizational (one classroom) account,
     //then the classroom information is stored in "session".
     const { session } = ctx.state.user;
-    let sessions = [];
+    let classrooms = [];
 
     //Handle organizaional accounts
     if (session) {
@@ -62,16 +62,26 @@ module.exports = {
       }
 
       //Get all classrooms belonging to these students
-      students.forEach((student) => {
-        const thisStudentsSessions = student.sessions;
-        if (thisStudentsSessions) {
-          thisStudentsSessions.forEach((session) => {
-            sessions.push(session);
+      await students.forEach(async (student) => {
+        const thisStudentsClassroom = student.classroom;
+        if (thisStudentsClassroom) {
+          strapi.log.debug("thisStudentsClassroom: ", thisStudentsClassroom);
+          const selection = await strapi.services.selection.findOne(
+            { classroom: thisStudentsClassroom, current: true },
+            ["lesson_module.activities", "classroom.grade"]
+          );
+          strapi.log.debug("selection: ", selection);
+          strapi.log.debug("pushing to classrooms");
+          classrooms.push({
+            classroom: selection.classroom,
+            lesson_module: selection.lesson_module,
           });
         }
       });
 
-      strapi.log.debug("sessions: ", sessions);
+      strapi.log.debug("done pushing to classrooms");
+
+      strapi.log.debug("classrooms: ", classrooms);
 
       strapi.log.debug(
         "Not yet implemented-- Tried to get classrooms belonging to student PERSONAL account"
