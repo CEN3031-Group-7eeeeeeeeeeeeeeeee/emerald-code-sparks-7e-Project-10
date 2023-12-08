@@ -13,7 +13,7 @@ module.exports = {
     //If student is using an organizational (one classroom) account,
     //then the classroom information is stored in "session".
     const { session } = ctx.state.user;
-    let classrooms = [];
+    let sessions = [];
 
     //Handle organizaional accounts
     if (session) {
@@ -42,6 +42,37 @@ module.exports = {
     //Handle personal accounts
     else {
       //Get all "student" objects / organizational accounts belonging to this account
+
+      const handleError = (err) => {
+        strapi.log.error("Error getting classrooms: ", err);
+        return {
+          classroom: null,
+          lesson_module: null,
+        };
+      };
+
+      const currUser = await strapi
+        .query("user", "users-permissions")
+        .findOne({ id: ctx.state.user.id });
+
+      strapi.log.debug("currUser: ", currUser);
+      const students = currUser.students;
+      if (!students) {
+        return handleError("No students found for this user");
+      }
+
+      //Get all classrooms belonging to these students
+      students.forEach((student) => {
+        const thisStudentsSessions = student.sessions;
+        if (thisStudentsSessions) {
+          thisStudentsSessions.forEach((session) => {
+            sessions.push(session);
+          });
+        }
+      });
+
+      strapi.log.debug("sessions: ", sessions);
+
       strapi.log.debug(
         "Not yet implemented-- Tried to get classrooms belonging to student PERSONAL account"
       );
