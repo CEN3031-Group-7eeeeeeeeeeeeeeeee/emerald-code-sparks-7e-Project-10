@@ -64,27 +64,30 @@ module.exports = {
       }
 
       const promises = students.map(async (student) => {
-        const thisStudentsClassroom = student.classroom;
+
+        if (!student){
+          strapi.log.debug("No student found rn");
+        }
+
+        const thisStudentsClassroom = student ? student.classroom : null;
         if (thisStudentsClassroom) {
           const selection = await strapi.services.selection.findOne(
             { classroom: thisStudentsClassroom, current: true },
             ["lesson_module.activities", "classroom.grade"]
           );
+
           return {
-            classroom: selection.classroom,
-            lesson_module: selection.lesson_module,
+            classroom: selection ? selection.classroom : null,
+            lesson_module: selection ? selection.lesson_module : null,
           };
         }
       });
 
       classrooms = await Promise.all(promises);
-
-      strapi.log.debug("classrooms: ", classrooms);
-
-      strapi.log.debug(
-        "Not yet implemented-- Tried to get classrooms belonging to student PERSONAL account"
-      );
-
+      
+      //filter out nulls
+      classrooms = classrooms.filter((classroom) => classroom !== null && classroom.classroom !== null && classroom.lesson_module !== null);
+      strapi.log.debug("classrooms after filter: ", classrooms);
       return classrooms
         ? classrooms
         : {

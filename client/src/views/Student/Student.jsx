@@ -16,6 +16,7 @@ function Student() {
         const res = await getStudentClassroom();
         if (res.data) {
           setAllClassroomsAndLessons(res.data);
+          console.log('res.data', res.data);
         } else {
           message.error(res.err);
         }
