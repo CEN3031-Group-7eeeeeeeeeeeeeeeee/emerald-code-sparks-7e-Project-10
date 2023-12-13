@@ -27,6 +27,20 @@
           "name": "User"
         }
       }
+    },
+    {
+      "method": "PUT",
+      "path": "/users/merge",
+      "handler": "user.merge",
+      "config": {
+        "policies": [],
+        "prefix": "",
+        "description": "Merge the currently logged in user with provided students by IDs",
+        "tag": {
+          "plugin": "users-permissions",
+          "name": "User"
+        }
+      }
     }
   ]
 }

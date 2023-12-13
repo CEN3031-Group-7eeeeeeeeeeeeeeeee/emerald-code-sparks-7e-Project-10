@@ -798,3 +798,13 @@ export const deleteCurrentUser = async () => {
     error: "Unable to delete current user",
   });
 };
+
+export const mergeWithStudents = async (ids) => {
+  return makeRequest({
+    method: PUT,
+    path: `${server}/users/merge`,
+    data: {students: ids},
+    auth: true,
+    error: "Unable to merge current user",
+  });
+};

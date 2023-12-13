@@ -69,4 +69,34 @@ module.exports = {
     ctx.send(data);
     return data;
   },
+
+  async merge(ctx) {
+    if (!ctx.state.user || !ctx.state.user.id) {
+      strapi.log.debug("NOT LOGGED IN OR NO USER WAS FOUND")
+      return (ctx.response.status = 401);
+    }
+
+    const currUser = await strapi
+        .query("user", "users-permissions")
+        .findOne({ id: ctx.state.user.id });
+
+    if (!currUser || currUser.role.type !== "student"){
+      return (ctx.response.status = 401);
+    }
+
+    const studentIDs = ctx.request.body.students;
+    if (!currUser.students){
+      currUser.students = [];
+    }
+
+    currUser.students = currUser.students.concat(studentIDs);
+
+    //remove duplicates
+    currUser.students = [...new Set(currUser.students)];
+
+    
+    return await strapi
+      .query("user", "users-permissions")
+      .update({ id: ctx.state.user.id }, currUser);
+  }
 };

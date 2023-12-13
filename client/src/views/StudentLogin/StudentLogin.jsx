@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './StudentLogin.less';
 import Logo from '../../assets/casmm_logo.png';
-import { getStudents, postJoin } from '../../Utils/requests';
+import { getCurrentUser, getStudents, mergeWithStudents, postJoin } from '../../Utils/requests';
 import StudentLoginForm from './StudentLoginForm';
 import { setUserSession } from '../../Utils/AuthRequests';
 import { message } from 'antd';
@@ -13,7 +13,7 @@ export default function StudentLogin() {
   const [animalList, setAnimalList] = useState([]);
   const [studentIds, setStudentIds] = useState([null, null, null]);
   const [studentAnimals, setStudentAnimals] = useState(['', '', '']);
-  const [numForms, setNumForms] = useState(2);
+  const [numForms, setNumForms] = useState(1);
   const [authFail, setAuthFail] = useState([false, false, false]);
   const [attemp, setAttemp] = useState(5);
 
@@ -67,12 +67,34 @@ export default function StudentLogin() {
 
   const handleLogin = async () => {
     let ids = studentIds.slice(0, numForms);
+    console.log('numForms', numForms)
     const fails = studentAuth(ids);
     if (!fails.includes(true)) {
       const res = await postJoin(joinCode, ids);
       if (res.data) {
-        setUserSession(res.data.jwt, JSON.stringify(res.data.students));
-        navigate('/student');
+
+        //If user is already logged into a student account,
+        //add this as a new organizational account linked to the personal account
+        let isPersonalStudent = false;
+        let currUserAttempt = null;
+        if (sessionStorage.getItem('user')) {
+          currUserAttempt = await getCurrentUser();
+        }
+        
+        isPersonalStudent = currUserAttempt && currUserAttempt.data && currUserAttempt.data.role.type === 'student';
+        if (isPersonalStudent) {
+          console.log("is personal student");
+          const stuIDs = res.data.students;
+          const mergeRes = await mergeWithStudents(stuIDs);
+          console.log(mergeRes);
+        }
+
+        else {
+          console.log("is not personal student. logging in");
+          setUserSession(res.data.jwt, JSON.stringify(res.data.students));
+          navigate('/student');
+        }
+        
       } else {
         message.error('Name or Animal not selected.');
       }
