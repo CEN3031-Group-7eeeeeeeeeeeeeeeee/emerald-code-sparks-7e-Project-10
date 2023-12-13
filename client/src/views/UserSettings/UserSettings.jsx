@@ -4,9 +4,10 @@ import NavBar from "../../components/NavBar/NavBar";
 import { useNavigate } from "react-router-dom";
 import "./UserSettings.less";
 import DeleteUser from "./DeleteUser";
-import { getCurrentUser, updateUser } from "../../Utils/requests";
+import { getStudentClassroom, updateUser } from "../../Utils/requests";
 import useCurrentUser from "../../Utils/useCurrentUser";
 import { message } from "antd";
+import { getCurrUser } from "../../Utils/userState";
 
 export default function UserSettings() {
   const navigate = useNavigate();
@@ -14,6 +15,10 @@ export default function UserSettings() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [email, setEmail] = useState("");
+  const role = getCurrUser().role;
+
+  //Only for students
+  const [classroomNames] = useUserClassrooms();
 
   const { user, loading, error } = useCurrentUser(); //Fetch the current user
 
@@ -125,9 +130,49 @@ export default function UserSettings() {
         </div>
       </div>
 
-      <div className="user-settings-container">
-        <div id="container-title">My Classrooms</div>
-      </div>
+      {role.toLowerCase() === "student" && <ClassroomContainer />}
     </div>
   );
+}
+
+function ClassroomContainer() {
+  const navigate = useNavigate();
+
+  const classrooms = useUserClassrooms();
+  return (
+    <div className="user-settings-container">
+      <div id="container-title">My Classrooms</div>
+      <div className="user-settings-inner">
+        <div className="classroom-container">
+          {classrooms.map((classroom) => (
+            <b>{classroom}</b>
+          ))}
+        </div>
+    </div>
+      <button type="submit" className="submit-changes" onClick={()=>navigate('/')}>
+        Add Class Account
+      </button>
+    </div>
+  )
+}
+
+const useUserClassrooms = () => {
+  const [classrooms, setClassrooms] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await getStudentClassroom();
+        if (res.data) {
+          const allClassroomsAndLessons = res.data;
+          setClassrooms(allClassroomsAndLessons.map((classroom) => classroom.classroom.name));
+        }
+      } catch {}
+    };
+
+    fetchData();
+    
+  }, []);
+
+  return classrooms;
 }
