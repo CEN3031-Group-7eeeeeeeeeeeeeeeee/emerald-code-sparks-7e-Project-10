@@ -83,14 +83,18 @@ export default function StudentLogin() {
         
         isPersonalStudent = currUserAttempt && currUserAttempt.data && currUserAttempt.data.role.type === 'student';
         if (isPersonalStudent) {
-          console.log("is personal student");
           const stuIDs = res.data.students;
           const mergeRes = await mergeWithStudents(stuIDs);
-          console.log(mergeRes);
+          if (mergeRes.data) {
+            message.info('Merged Accounts');
+            navigate('/usersettings');
+          }
+          else {
+            message.error('Error merging accounts.');
+          }
         }
 
         else {
-          console.log("is not personal student. logging in");
           setUserSession(res.data.jwt, JSON.stringify(res.data.students));
           navigate('/student');
         }

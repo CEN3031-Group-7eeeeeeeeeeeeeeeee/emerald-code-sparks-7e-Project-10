@@ -149,7 +149,7 @@ function ClassroomContainer() {
           ))}
         </div>
     </div>
-      <button type="submit" className="submit-changes" onClick={()=>navigate('/')}>
+      <button type="submit" className="submit-changes" onClick={()=>navigate('/merge')}>
         Add Class Account
       </button>
     </div>
