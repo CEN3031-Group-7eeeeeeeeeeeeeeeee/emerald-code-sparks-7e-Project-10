@@ -1,4 +1,43 @@
-# CaSMM
+# Group 7E Project #10
+
+### Features Implemented:
+
+- User account creation and deletion.
+- User settings page creation featuring a multitude of new settings, including account merging functionality.
+- Password regex and confirm password protection.
+- Merge account functionailty for teacher use.
+- Complete style update of all created views.
+
+## How to Run the Project Locally:
+
+1. Follow the [client](/client#setup) setup
+2. Run `yarn start` from `/client`
+
+`casmm-server-dev`, `casmm-compile-dev`, `casmm-db-dev`, and `casmm-compile_queue-dev`
+
+1. Install [docker](https://docs.docker.com/get-docker/)
+
+2. Run `docker compose up` from `/`
+
+## How to Update Database and Server Connections:
+
+- To ensure a smooth workflow and maintain data consistency in your Strapi project using Docker, follow these steps to update your database and server connections:
+
+### Start by ensuring you are connected to the database using Strapi and Docker. Navigate to your Strapi project directory and execute the following commands to start your Docker containers:
+
+docker-compose up
+
+### Before running the web app, it's essential to synchronize any changes made by the previous team.
+
+- These steps will ensure that your Strapi project is up to date with the latest changes and that the database is synchronized. For more detailed information and troubleshooting tips, consult the official Strapi and Docker documentation.
+
+## Outstanding Work:
+
+There is no outstanding work at this time. 
+
+### Built upon code from previous CaSMM developers, using vanilla React.js, Docker, Strapi, and plain CSS.  
+
+# CaSMM Description
 
 > Computation and Science Modeling through Making
 
